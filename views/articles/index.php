@@ -388,7 +388,7 @@ if($nextArticleUrl) {
         articleProgress(35);
 
         var imgs = $('.article-body img');
-        imgs.each.function({
+        imgs.each(function(){
             var url = $(this).attr('src');
             $(this).wrap('<a class="lightbox-lnk" href="'+url+'"></a>');
         });
