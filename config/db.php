@@ -1,9 +1,14 @@
 <?php
 
 return [
+//    'class' => 'yii\db\Connection',
+//    'dsn' => 'mysql:host=92.53.125.36;dbname=ci35424_beicon',
+//    'username' => 'ci35424_beicon',
+//    'password' => 'puf{O5!q@1&P_=6',
+//    'charset' => 'utf8',
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=92.53.125.36;dbname=ci35424_beicon',
-    'username' => 'ci35424_beicon',
+    'dsn' => 'mysql:host=127.0.0.1;dbname=dbbeicon',
+    'username' => 'userbeicon',
     'password' => 'puf{O5!q@1&P_=6',
     'charset' => 'utf8',
 
