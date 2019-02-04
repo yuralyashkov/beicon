@@ -341,6 +341,10 @@ if($nextArticleUrl) {
     }
 
     $(function () {
+
+
+
+
         $(document).on("scroll", onScroll);
         var article<?=$article["id"]?> = false;
        $(window).scroll(function () {
@@ -382,6 +386,17 @@ if($nextArticleUrl) {
 
         // Call 'articleProgress(percent)' function to set the percent value for the progress-bar
         articleProgress(35);
+
+        var imgs = $('.article-body img');
+        imgs.each.function(){
+            var url = $(this).attr('src');
+            $(this).wrap('<a class="lightbox-lnk" href="'+url+'"></a>');
+        }
+
+        $('a.lightbox-lnk').magnificPopup({
+            type: 'image'
+            // other options
+        });
     })
 
 </script>
@@ -414,6 +429,11 @@ if($nextArticleUrl) {
         /*align-content: center;*/
     }
 </style>
+
+    <?php
+
+    $this->registerJsFile('/basic/web/js/jquery.magnific-popup.min.js', yii\web\View::POS_READY);
+    ?>
 <? } ?>
 
 
