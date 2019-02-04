@@ -1,6 +1,8 @@
 <?php
 use app\models\Sections;
 use yii\helpers\Url;
+
+$this->title = 'Поиск на Be Icon: '.$query;
 ?>
 
 <div class="content-wrapper">
@@ -39,7 +41,7 @@ use yii\helpers\Url;
                 <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>"><?=$item["name"]?></a></h3>
                 <div class="tags">
                     <ul class="tags__list">
-                        <li class="tags__item"><a href="#"><?=$section["name"]?></a></li>
+                        <li class="tags__item"><a href="<?=Url::to(['sections/view', 'url' => $section["url"]])?>"><?=$section["name"]?></a></li>
                     </ul>
                 </div>
                 <div class="article__teaser__info">

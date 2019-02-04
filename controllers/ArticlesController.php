@@ -37,7 +37,7 @@ class ArticlesController extends Controller
 
 
     public function actionSearch($query){
-        $model = Articles::find()->where(['like', 'name', $query])->orderBy(['date_publish' => SORT_DESC])->all();
+        $model = Articles::find()->where(['like', 'name', $query])->andWhere(['status' => 'publish'])->orderBy(['date_publish' => SORT_DESC])->all();
         $this->hide_header = 1;
         $this->body_id = 'searchResultsPage';
         return $this->render('search', [
@@ -50,7 +50,7 @@ class ArticlesController extends Controller
 
     public function actionView($url)
     {
-        $model = Articles::find()->where(['url' => $url])->with('tags')->one();
+        $model = Articles::find()->where(['url' => $url])->andWhere(['status' => 'publish'])->with('tags')->one();
         if ($model === null) {
             throw new NotFoundHttpException;
         }
@@ -86,7 +86,7 @@ class ArticlesController extends Controller
             $recomended = array();
             foreach ($recomendedIds as $recItem){
 
-                $recItem = Articles::find()->where(['id' => $recItem["recomended_id"]])->andWhere(['!=', 'id', $id])->one();
+                $recItem = Articles::find()->where(['id' => $recItem["recomended_id"]])->andWhere(['!=', 'id', $id])->andWhere(['status' => 'publish'])->one();
 
                 if($recItem){
                     $recomended[] = $recItem;
@@ -362,7 +362,7 @@ $this->contentClass = 'one-column';
 
 
 
-        $topic = Articles::find()->where(['topic_day' => 1, 'status' => 'publish'])->limit(10);
+        $topic = Articles::find()->where(['topic_day' => 1])->limit(10);
         if($topic)
             $topic = $topic->one();
         else $topic = false;

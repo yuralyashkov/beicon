@@ -61,6 +61,8 @@ if($article["header_img"]) {
                         $socials = Socials::find()->orderBy(['sort' => SORT_ASC])->all();
 
                         foreach ($socials as $social) {
+
+                            if($social["href"] == '#' || !$social["href"]) continue;
                         ?>
                             <a class="social-login__item" href="<?=$social["href"]?>" target="_blank"><svg class="inline-svg social-svg"><use xlink:href="#<?=$social["name"]?>"></use></svg></a>
                         <? } ?>
@@ -269,13 +271,13 @@ if($article["header_img"]) {
                         <div class="article__teaser_half">
                             <div class="image-container">
                                 <? if($recItem["preview_img"] != '' || $recItem["header_img"] != ''){ ?>
-                                    <img src="<? if($recItem["preview_img"]) {
-
-                                            echo '/uploads/'.$recItem["preview_img"];
-
-                                    } else echo '/uploads/'.$recItem["header_img"]; ?>" width="768" height="1200" alt="">
+                                    <img src="<?if(file_exists($_SERVER["DOCUMENT_ROOT"].UPLOAD_DIR.$recItem["header_img"])){
+                                        echo UPLOAD_DIR.$recItem["header_img"];
+                                    } elseif(file_exists($_SERVER["DOCUMENT_ROOT"].UPLOAD_DIR.$recItem["preview_img"])) echo UPLOAD_DIR.$recItem["preview_img"]; ?>"alt="">
                                 <? } ?>
                             </div>
+
+
 
                             <div class="info-wrapper">
                                 <h3><?=$recItem["name"]?></h3>

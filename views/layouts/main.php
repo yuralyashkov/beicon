@@ -99,6 +99,7 @@ AppAsset::register($this);
                         $socials = Socials::find()->orderBy(['sort' => SORT_ASC])->all();
 
                         foreach ($socials as $social) {
+                            if($social["href"] == '#' || !$social["href"]) continue;
                         ?>
                         <a class="social-login__item" href="<?=$social["href"]?>" target="_blank"><svg class="inline-svg social-svg"><use xlink:href="#<?=$social["name"]?>"></use></svg></a>
                         <? } ?>
