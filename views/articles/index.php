@@ -332,7 +332,7 @@ if($nextArticleUrl) {
                 if(window.history.state !== url) {
                     // console.error(url);
                     // console.error(window.history.state);
-                    window.history.replaceState(url, "Title", '/articles' + url);
+                    window.history.replaceState(url, "Title",url);
 
                 }
 
