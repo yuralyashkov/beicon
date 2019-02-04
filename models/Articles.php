@@ -20,7 +20,7 @@ class Articles extends ActiveRecord
     public function getNext() {
         $next = $this->find()->where(['<', 'id', $this->id])->andWhere(['status' => 'publish'])->andWhere(['section' => $this->section])->orderBy('id desc')->one();
         if (isset($next))
-            return Url::toRoute(['articles/view', 'url' => $next->url]); // абсолютный роут вне зависимости от текущего контроллера
+            return Url::toRoute(['articles/view', 'url' => $next->url, 'section' => $next->sectionData->url]); // абсолютный роут вне зависимости от текущего контроллера
         else return null;
     }
 
@@ -294,4 +294,8 @@ class Articles extends ActiveRecord
         return $this->hasOne(Seo::className(), ['id_record' => 'id']);
     }
 
+    public function getSectionData(){
+        $s = $this->hasOne(Sections::className(), ['id' => 'section']);
+        return $s;
+    }
 }

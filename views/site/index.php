@@ -27,12 +27,12 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
 
 
 
-        <?php if(isset($articles[0])){ ?><h2><a href="<?=Url::to(['articles/view', 'url' => $articles[0]->url])?>"><?=$articles[0]->name?></a></h2><?php } ?>
+        <?php if(isset($articles[0])){ ?><h2><a href="<?=Url::to(['articles/view', 'url' => $articles[0]->url, 'section' => $articles[0]->sectionData->url])?>"><?=$articles[0]->name?></a></h2><?php } ?>
         <ul class="top-articles__list bl-wrapper">
           <?php if(isset($articles[1])) { ?>
               <?php $article = $articles[1]; ?>
             <li class="top-article__item">
-                <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>"><?=$article->name?></a></h3>
+                <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>"><?=$article->name?></a></h3>
                 <div class="article__teaser__info clearfix">
                     <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
                     <?php if($article["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
@@ -42,7 +42,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
           <?php if(isset($articles[2])) { ?>
               <?php $article = $articles[2]; ?>
             <li class="top-article__item">
-                <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>"><?=$article->name?></a></h3>
+                <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>"><?=$article->name?></a></h3>
                 <div class="article__teaser__info clearfix">
                     <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
                     <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
@@ -52,7 +52,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
           <?php if(isset($articles[3])) { ?>
               <?php $article = $articles[3]; ?>
             <li class="top-article__item">
-                <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>"><?=$article->name?></a></h3>
+                <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>"><?=$article->name?></a></h3>
                 <div class="article__teaser__info clearfix">
                     <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
                     <?php if($article["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
@@ -72,7 +72,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, '16_9_1040');
         ?>
         <article class="article__item article__teaser_vertical el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article-overlay"></div>
                 <img src="/uploads/<?=$img?>" alt="">
                 <div class="article-overlay_bottom">
@@ -89,7 +89,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, 'mini');
         ?>
         <article class="article__teaser_small el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article__teaser__image-container">
                     <div class="article-overlay"></div>
                     <img src="/uploads/<?=$img?>" width="80" height="80" alt=""></div>
@@ -107,7 +107,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, 'mini');
         ?>
         <article class="article__teaser_small el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article__teaser__image-container">
                     <div class="article-overlay"></div>
                     <img src="/uploads/<?=$img?>" width="80" height="80" alt=""></div>
@@ -125,7 +125,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, 'mini');
         ?>
         <article class="article__teaser_small el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article__teaser__image-container">
                     <div class="article-overlay"></div>
                     <img src="/uploads/<?=$img?>" width="80" height="80" alt=""></div>
@@ -143,7 +143,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, 'mini');
         ?>
         <article class="article__teaser_small el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article__teaser__image-container">
                     <div class="article-overlay"></div>
                     <img src="/uploads/<?=$img?>" width="80" height="80" alt=""></div>
@@ -164,7 +164,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
             $img = ImageSizes::getResizesName($article->preview_img, 'mini');
             ?>
             <article class="article__teaser_small el-wrapper clearfix">
-                <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+                <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                     <div class="article__teaser__image-container">
                         <div class="article-overlay"></div>
                         <img src="/uploads/<?=$img?>" width="80" height="80" alt=""></div>
@@ -182,7 +182,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
             $img = ImageSizes::getResizesName($article->preview_img, 'mini');
             ?>
             <article class="article__teaser_small el-wrapper clearfix">
-                <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+                <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                     <div class="article__teaser__image-container">
                         <div class="article-overlay"></div>
                         <img src="/uploads/<?=$img?>" width="80" height="80" alt=""></div>
@@ -200,7 +200,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, '1_1_690');
         ?>
         <article class="article__item article__teaser_vertical el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article-overlay"></div>
 
                 <img src="/uploads/<?=$img?>"alt="" class="article-img-full">
@@ -224,7 +224,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
             $img = ImageSizes::getResizesName($article->preview_img, 'mini');
             ?>
             <article class="article__teaser_small el-wrapper clearfix">
-                <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+                <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                     <div class="article__teaser__image-container">
                         <div class="article-overlay"></div>
                         <img src="/uploads/<?=$img?>" width="80" height="80" alt=""></div>
@@ -268,7 +268,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                 $img = ImageSizes::getResizesName($article->preview_img, 'mini');
                 ?>
                 <article class="article__teaser_small el-wrapper clearfix">
-                    <a href="<?= Url::to(['articles/view', 'url' => $article["url"]]) ?>">
+                    <a href="<?= Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url]) ?>">
                         <div class="article__teaser__image-container">
                             <div class="article-overlay"></div>
                             <img src="/uploads/<?= $img ?>" width="80" height="80" alt=""></div>
@@ -298,7 +298,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, '1_1_690');
         ?>
         <article class="article__teaser_vertical el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article-overlay"></div>
                 <img src="/uploads/<?=$img?>"alt="" class="article-img-full">
                 <img src="<?= UPLOAD_DIR.ImageSizes::getResizesName($article["preview_img"], '16_9_1040');?>"alt="" class="article-img-small">
@@ -316,7 +316,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, '1_1_690');
         ?>
         <article class="article__teaser_vertical el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article-overlay"></div>
                 <img src="/uploads/<?=$img?>"alt="" class="article-img-full">
                 <img src="<?= UPLOAD_DIR.ImageSizes::getResizesName($article["preview_img"], '16_9_1040');?>"alt="" class="article-img-small">
@@ -341,7 +341,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, '1_1_690');
         ?>
         <article class="article__item article__teaser_vertical el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article-overlay"></div>
                 <img src="/uploads/<?=$img?>"alt="" class="article-img-full">
                 <img src="<?= UPLOAD_DIR.ImageSizes::getResizesName($article["preview_img"], '16_9_1040');?>"alt="" class="article-img-small">
@@ -359,7 +359,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, '1_1_690');
         ?>
         <article class="article__item article__teaser_vertical el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article-overlay"></div>
                 <img src="/uploads/<?=$img?>"alt="" class="article-img-full">
                 <img src="<?= UPLOAD_DIR.ImageSizes::getResizesName($article["preview_img"], '16_9_1040');?>"alt="" class="article-img-small">
@@ -377,7 +377,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         $img = ImageSizes::getResizesName($article->preview_img, '16_9_1040');
         ?>
         <article class="article__item article__teaser_vertical el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article-overlay"></div>
                 <img src="/uploads/<?=$img?>"alt="" class="article-img-full">
                 <img src="<?= UPLOAD_DIR.ImageSizes::getResizesName($article["preview_img"], '16_9_1040');?>"alt="" class="article-img-small">

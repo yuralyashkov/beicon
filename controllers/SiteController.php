@@ -44,7 +44,7 @@ class SiteController extends Controller
                     $article->content = preg_replace('/<script.*?\/script>/i','', $article->content);
 
                     $fields = [
-                        'link' => Url::to(['articles/view', 'url' => $article->url]),
+                        'link' => Url::to(['articles/view', 'url' => $article->url, 'section' => $article->sectionData->url]),
                         'title' => $article->name,
                         'pubDate' => date(DATE_RFC822, strtotime($article->date_publish)),
                         'content' => $article->content

@@ -54,7 +54,7 @@ use app\models\ImageSizes;
 
 
         <article class="article__item article__teaser_vertical <? if($n == 0) { ?>x2<? } ?> el-wrapper clearfix">
-            <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+            <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                 <div class="article-overlay"></div>
               <img src="<? if($article["preview_img"]) {
 
@@ -137,7 +137,7 @@ use app\models\ImageSizes;
             <div class="article-overlay"></div>
             <div class="top-articles-wrapper">
 
-                <h2><a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>"><?=$article["name"]?></a></h2>
+                <h2><a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>"><?=$article["name"]?></a></h2>
 
                 <div class="top-articles__list bl-wrapper">
                     <?php
@@ -146,7 +146,7 @@ use app\models\ImageSizes;
 
                     ?>
                     <article class="top-article__item">
-                        <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>"><?=$article["name"]?></a></h3>
+                        <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>"><?=$article["name"]?></a></h3>
                         <div class="article__teaser__info clearfix">
                             <? if($article["date_publish"] != '0000-00-00 00:00:00') { ?><div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div><? } ?>
                             <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
@@ -166,7 +166,7 @@ use app\models\ImageSizes;
                 $img = ImageSizes::getResizesName($article->preview_img, 'mini');
                 ?>
             <article class="article__teaser_small el-wrapper clearfix">
-                <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+                <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                     <div class="article__teaser__image-container">
                         <div class="article-overlay"></div>
                         <img src="/uploads/<?=$img?>" width="80" height="80" alt=""></div>

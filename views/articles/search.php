@@ -38,7 +38,7 @@ $this->title = 'Поиск на Be Icon: '.$query;
                 <? } ?>
             </div>
             <div class="article__teaser__wrapper">
-                <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>"><?=$item["name"]?></a></h3>
+                <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>"><?=$item["name"]?></a></h3>
                 <div class="tags">
                     <ul class="tags__list">
                         <li class="tags__item"><a href="<?=Url::to(['sections/view', 'url' => $section["url"]])?>"><?=$section["name"]?></a></li>

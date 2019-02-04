@@ -54,7 +54,7 @@ use app\models\ImageSizes;
 
 
             <article class="article__item article__teaser_vertical <? if($n == 0) { ?>x2<? } ?> el-wrapper clearfix">
-                <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+                <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                     <div class="article-overlay"></div>
                     <img src="<? if($article["preview_img"]) {
 
@@ -130,7 +130,7 @@ use app\models\ImageSizes;
                 $img = ImageSizes::getResizesName($article->preview_img, 'mini');
                 ?>
                 <article class="article__teaser_small el-wrapper clearfix">
-                    <a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>">
+                    <a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>">
                         <div class="article__teaser__image-container">
                             <div class="article-overlay"></div>
                             <img src="/uploads/<?=$img?>" width="80" height="80" alt=""></div>

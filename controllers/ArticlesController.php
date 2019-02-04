@@ -48,8 +48,14 @@ class ArticlesController extends Controller
 
     public $contentClass;
 
-    public function actionView($url)
+    public function actionView($section, $url)
     {
+
+        $section = Sections::findOne(['url' => $section]);
+        if($section === null){
+            throw new NotFoundHttpException;
+        }
+
         $model = Articles::find()->where(['url' => $url])->andWhere(['status' => 'publish'])->with('tags')->one();
         if ($model === null) {
             throw new NotFoundHttpException;
@@ -65,7 +71,7 @@ class ArticlesController extends Controller
 
         if($topic["id"] == $id) $topic = false;
 
-        $section = Sections::findOne($model["section"]);
+
         $categoryRes = SectionsCategory::find()->where(['section_id' => $section["id"]])->all();
         $cs = [];
 

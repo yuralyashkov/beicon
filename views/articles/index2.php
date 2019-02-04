@@ -137,10 +137,10 @@ use app\models\Socials;
                 <!--                <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,twitter" data-bare="false"></div>-->
                 <div class="social-share__list_bottom">
 
-                    <a class="social-login__item fb-share-button" href="https://www.facebook.com/sharer.php?src=sp&u=<?=Url::to(['articles/view', 'url' => $article["url"]], true)?>&title=<?=$article["name"]?>&utm_source=share2" rel="nofollow "><svg class="inline-svg social-svg"><use xlink:href="#fb"></use></svg></a>
-                    <a class="social-login__item" href="https://vk.com/share.php?url=<?=Url::to(['articles/view', 'url' => $article["url"]], true)?>&title=<?=$article["name"]?>&utm_source=share2" rel="nofollow "><svg class="inline-svg social-svg"><use xlink:href="#vk"></use></svg></a>
-                    <a class="social-login__item" href="https://twitter.com/intent/tweet?url=<?=Url::to(['articles/view', 'url' => $article["url"]], true)?>&text=<?=$article["name"]?>&utm_source=share2" rel="nofollow "><svg class="inline-svg social-svg"><use xlink:href="#twitter"></use></svg></a>
-                    <a class="social-login__item" href="https://connect.ok.ru/offer?url=<?=Url::to(['articles/view', 'url' => $article["url"]], true)?>&title=<?=$article["name"]?>&utm_source=share2" rel="nofollow "><svg class="inline-svg social-svg"><use xlink:href="#ok"></use></svg></a>
+                    <a class="social-login__item fb-share-button" href="https://www.facebook.com/sharer.php?src=sp&u=<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url], true)?>&title=<?=$article["name"]?>&utm_source=share2" rel="nofollow "><svg class="inline-svg social-svg"><use xlink:href="#fb"></use></svg></a>
+                    <a class="social-login__item" href="https://vk.com/share.php?url=<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url], true)?>&title=<?=$article["name"]?>&utm_source=share2" rel="nofollow "><svg class="inline-svg social-svg"><use xlink:href="#vk"></use></svg></a>
+                    <a class="social-login__item" href="https://twitter.com/intent/tweet?url=<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url], true)?>&text=<?=$article["name"]?>&utm_source=share2" rel="nofollow "><svg class="inline-svg social-svg"><use xlink:href="#twitter"></use></svg></a>
+                    <a class="social-login__item" href="https://connect.ok.ru/offer?url=<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url], true)?>&title=<?=$article["name"]?>&utm_source=share2" rel="nofollow "><svg class="inline-svg social-svg"><use xlink:href="#ok"></use></svg></a>
                 </div>
             </div>
         </div>
@@ -179,7 +179,7 @@ use app\models\Socials;
 
                 <? foreach ($recomended as $recItem) { ?>
                     <li class="article__item swiper-slide" style="">
-                        <a href="<?=Url::to(['articles/view/', 'url' => $recItem["url"]])?>">
+                        <a href="<?=Url::to(['articles/view/', 'url' => $recItem["url"], 'section' => $recItem->sectionData->url])?>">
                             <div class="article__teaser_half">
                                 <div class="image-container">
                                     <? if($recItem["preview_img"] != '' || $recItem["header_img"] != ''){ ?>
@@ -213,7 +213,7 @@ use app\models\Socials;
 <? if($topic) { ?>
 
     <div class="article-progress" style="background: linear-gradient(to right, rgb(179, 161, 112) 35%, rgba(234, 203, 198, 0.3) 0%);">
-        <span class="article-progress-bar"><a href="<?=Url::to(['articles/view', 'url' => $topic["url"]])?>"><?=$topic["name"]?></a> </span>
+        <span class="article-progress-bar"><a href="<?=Url::to(['articles/view', 'url' => $topic["url"], 'section' => $topic->sectionData->url])?>"><?=$topic["name"]?></a> </span>
     </div>
 
 <? } ?>

@@ -104,7 +104,7 @@ $config = [
                 'POST api/catupdate/<id>' => 'rarticles/catupdate',
 
                 "search/<query>" => 'articles/search',
-                'articles/<url>/' => 'articles/view',
+                '<section>/<url>/' => 'articles/view',
                 'articles/<url>/preview' => 'articles/preview',
                 'tags/<id>/' => 'tags/view',
                 'rss/<url>/' => 'site/rss',

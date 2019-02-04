@@ -46,7 +46,7 @@ class Seo extends \yii\db\ActiveRecord
         $json["url"] = function (){
             if($this->tbl == 'articles'){
                 $article = Articles::findOne($this->id_record);
-                return Url::to(['articles/view', 'url' => $article->url]);
+                return Url::to(['articles/view', 'url' => $article->url, 'section' => $article->sectionData->url]);
             }
             if($this->tbl == 'tags'){
                 $article = Tags::findOne($this->id_record);
