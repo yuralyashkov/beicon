@@ -432,7 +432,7 @@ if($nextArticleUrl) {
 
     <?php
 
-    $this->registerJsFile('/basic/web/js/jquery.magnific-popup.min.js', yii\web\View::POS_READY);
+    $this->registerJsFile('/basic/web/js/jquery.magnific-popup.min.js');
     ?>
 <? } ?>
 
