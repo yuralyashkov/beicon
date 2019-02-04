@@ -18,6 +18,10 @@ if($article["section"] == 5){
 
 
 }
+
+
+
+$article->name = str_replace('"', '', $article->name);
 ?>
 
 <div class="gallery-mosaic">
@@ -35,25 +39,25 @@ if($article["section"] == 5){
         <div class="gallery-mosaic__item"  data-gallery="<?=$gallery["id"]?>">
 
             <? if ($n == 1) { ?>
-                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size1)?>" alt="" width="352" height="536">
+                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size1)?>" alt="<?=$article->name?>" width="352" height="536">
             <? } ?>
             <? if ($n == 2) { ?>
-                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size2)?>" alt="" width="352" height="256">
+                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size2)?>" alt="<?=$article->name?>" width="352" height="256">
             <? } ?>
             <? if ($n == 3) { ?>
-                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size1)?>" alt="" width="352" height="536">
+                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size1)?>" alt="<?=$article->name?>" width="352" height="536">
             <? } ?>
             <? if ($n == 4) { ?>
-                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size3)?>" alt="" width="352" height="550">
+                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size3)?>" alt="<?=$article->name?>" width="352" height="550">
             <? } ?>
             <? if ($n == 5) { ?>
-                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size1)?>" alt="" width="352" height="536">
+                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size1)?>" alt="<?=$article->name?>" width="352" height="536">
             <? } ?>
             <? if ($n == 6) { ?>
-                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size1)?>" alt="" width="352" height="536">
+                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size1)?>" alt="<?=$article->name?>" width="352" height="536">
             <? } ?>
             <? if ($n == 7) { ?>
-                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size2)?>" alt="" width="352" height="256">
+                <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($item["url"], $size2)?>" alt="<?=$article->name?>" width="352" height="256">
             <? } ?>
         </div>
         <? $n++; if($n == 8) $n = 1; } ?>
@@ -70,7 +74,7 @@ if($article["section"] == 5){
                         <? foreach ($galleryItems as $item) { ?>
                         <div class="swiper-slide">
                             <div class="gallery-fullscreen__image-container">
-                                <img src="<?=UPLOAD_DIR.$item["url"]?>" alt="">
+                                <img src="<?=UPLOAD_DIR.$item["url"]?>" alt="<?=$article->name?>">
                             </div>
                         </div>
                         <? } ?>

@@ -16,6 +16,8 @@ if($view_type == 'gallery-one-column' || $view_type == 'gallery-only-one-column'
 $firstSize = '16_9_1040';
 $secondSize = '16_9_830';
 
+$article->name = str_replace('"', '', $article->name);
+
 
 ?>
 <div class="gallery-tile">
@@ -23,17 +25,17 @@ $secondSize = '16_9_830';
         <ul class="gallery-tile-prev__list items_3">
             <? if(isset($galleryItems[0])){ ?>
                 <li class="gallery-tile-prev__item" data-gallery="<?=$gallery["id"]?>">
-                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[0]["url"], $firstSize, $gallery["id"])?>" alt="" >
+                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[0]["url"], $firstSize, $gallery["id"])?>" alt="<?=$article->name?>" >
                 </li>
             <? } ?>
             <? if(isset($galleryItems[1])){ ?>
                 <li class="gallery-tile-prev__item" data-gallery="<?=$gallery["id"]?>">
-                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[1]["url"], $secondSize, $gallery["id"])?>" alt="">
+                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[1]["url"], $secondSize, $gallery["id"])?>" alt="<?=$article->name?>">
                 </li>
             <? } ?>
             <? if(isset($galleryItems[2])){ ?>
                 <li class="gallery-tile-prev__item" data-gallery="<?=$gallery["id"]?>">
-                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[2]["url"], $secondSize, $gallery["id"])?>" alt="">
+                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[2]["url"], $secondSize, $gallery["id"])?>" alt="<?=$article->name?>">
 
                     <? if(count($galleryItems) > 3){ ?>
                         <span class="photo-counter">+<?=count($galleryItems)-3?></span>
@@ -53,7 +55,7 @@ $secondSize = '16_9_830';
                         <? foreach ($gallery->items as $item) { ?>
                         <div class="swiper-slide">
                             <div class="gallery-fullscreen__image-container">
-                                <img src="/uploads/<?=$item["url"]?>" alt="">
+                                <img src="/uploads/<?=$item["url"]?>" alt="<?=$article->name?>">
                             </div>
                             <div class="right-aside">
                                 <p class="swiper-slide__description"><?=$item->content?></p>

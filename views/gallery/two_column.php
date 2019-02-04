@@ -3,6 +3,9 @@ use app\models\ImageSizes;
 $galleryItems = [];
 foreach ($gallery->items as $ITEM)
     $galleryItems[] = $ITEM;
+
+
+$article->name = str_replace('"', '', $article->name);
 ?>
 <div class="gallery-tile">
     <div class="gallery-tile-prev">
@@ -10,27 +13,27 @@ foreach ($gallery->items as $ITEM)
         <ul class="gallery-tile-prev__list items_5">
             <? if(isset($galleryItems[0])){ ?>
                 <li class="gallery-tile-prev__item" data-gallery="<?=$gallery["id"]?>">
-                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[0]["url"], '1_1_516')?>" alt="">
+                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[0]["url"], '1_1_516')?>" alt="<?=$article->name?>">
                 </li>
             <? } ?>
             <? if(isset($galleryItems[1])){ ?>
                 <li class="gallery-tile-prev__item" data-gallery="<?=$gallery["id"]?>">
-                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[1]["url"], '1_1_516')?>" alt="">
+                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[1]["url"], '1_1_516')?>" alt="<?=$article->name?>">
                 </li>
             <? } ?>
             <? if(isset($galleryItems[2])){ ?>
                 <li class="gallery-tile-prev__item" data-gallery="<?=$gallery["id"]?>">
-                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[2]["url"], '16_9_830')?>" alt="">
+                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[2]["url"], '16_9_830')?>" alt="<?=$article->name?>">
                 </li>
             <? } ?>
             <? if(isset($galleryItems[3])){ ?>
                 <li class="gallery-tile-prev__item" data-gallery="<?=$gallery["id"]?>">
-                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[3]["url"], '16_9_830')?>" alt="">
+                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[3]["url"], '16_9_830')?>" alt="<?=$article->name?>">
                 </li>
             <? } ?>
             <? if(isset($galleryItems[4])){ ?>
                 <li class="gallery-tile-prev__item" data-gallery="<?=$gallery["id"]?>">
-                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[4]["url"], '16_9_830')?>" alt="">
+                    <img src="<?=UPLOAD_DIR.ImageSizes::getResizesName($galleryItems[4]["url"], '16_9_830')?>" alt="<?=$article->name?>">
 
                     <? if(count($galleryItems) > 5){ ?>
                         <span class="photo-counter">+<?=count($galleryItems)-5?></span>
@@ -48,7 +51,7 @@ foreach ($gallery->items as $ITEM)
                         <? foreach ($gallery->items as $item) { ?>
                             <div class="swiper-slide">
                                 <div class="gallery-fullscreen__image-container">
-                                    <img src="/uploads/<?=$item["url"]?>" alt="">
+                                    <img src="/uploads/<?=$item["url"]?>" alt="<?=$article->name?>">
                                 </div>
                                 <div class="right-aside">
                                     <p class="swiper-slide__description"><?=$item->content?></p>
