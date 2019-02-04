@@ -18,7 +18,7 @@ class Articles extends ActiveRecord
 
 
     public function getNext() {
-        $next = $this->find()->where(['<', 'id', $this->id])->andWhere(['section' => $this->section])->orderBy('id desc')->one();
+        $next = $this->find()->where(['<', 'id', $this->id])->andWhere(['status' => 'publish'])->andWhere(['section' => $this->section])->orderBy('id desc')->one();
         if (isset($next))
             return Url::toRoute(['articles/view', 'url' => $next->url]); // абсолютный роут вне зависимости от текущего контроллера
         else return null;
