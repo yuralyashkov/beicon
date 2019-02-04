@@ -433,6 +433,7 @@ if($nextArticleUrl) {
     <?php
 
     $this->registerJsFile('/basic/web/js/jquery.magnific-popup.min.js');
+    $this->registerCssFile('/basic/web/css/magnific-popup.css');
     ?>
 <? } ?>
 
