@@ -389,8 +389,12 @@ if($nextArticleUrl) {
 
         var imgs = $('.article-body img');
         imgs.each(function(){
-            var url = $(this).attr('src');
-            $(this).wrap('<a class="lightbox-lnk" href="'+url+'"></a>');
+
+            // if img is not gallery
+            if($(this).closest('.gallery-tile').length < 1) {
+                var url = $(this).attr('src');
+                $(this).wrap('<a class="lightbox-lnk" href="' + url + '"></a>');
+            }
         });
 
         $('a.lightbox-lnk').magnificPopup({
