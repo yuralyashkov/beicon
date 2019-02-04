@@ -72,16 +72,23 @@ if($article["header_img"]) {
 
                 <div class="article__announce-wrapper <? if($article["view_type"] == 'article' || $article["view_type"] == 'gallery-only' ) echo 'col_c'; ?>">
                     <? if($article["preview_img"] != '' || $article["header_img"] != ''){ ?>  <div class="article__announce-image">
-                            <img  itemprop="image" src="<? if($article["header_img"]) {
+
+                        <? $imgSrc = false;
+                        if($article["header_img"]) {
 
                                 if(file_exists($_SERVER["DOCUMENT_ROOT"].UPLOAD_DIR.$article["header_img"]))
-                                    echo UPLOAD_DIR.$article["header_img"];
+                                    $imgSrc = UPLOAD_DIR.$article["header_img"];
 
                             } else {
                                 if(file_exists($_SERVER["DOCUMENT_ROOT"].UPLOAD_DIR.$article["preview_img"]))
-                                    echo UPLOAD_DIR.$article["preview_img"];
+                                    $imgSrc = UPLOAD_DIR.$article["preview_img"];
 
-                            } ?>" alt=""></div><? } ?>
+                            } ?>
+                        <a href="<?=$imgSrc?>" class="lightbox-lnk">
+
+                            <img  itemprop="image" src="<?=$imgSrc?>" alt="">
+                        </a>
+                        </div><? } ?>
 
                     <p><?=$article["preview_content"]?></p>
                 </div>
