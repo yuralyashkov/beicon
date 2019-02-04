@@ -13,7 +13,7 @@ if($article["header_img"]) {
 
 } ?>
 
-<div class="article-ajax-wraper" data-id="<?=$article->sectionData->url.'/'.$article["url"]?>">
+<div class="article-ajax-wraper" data-id="/<?=$article->sectionData->url.'/'.$article["url"]?>">
     <!-- Start Articles top filter -->
     <div class="articles-filter content-wrapper">
         <ul class="articles-filter__list">
