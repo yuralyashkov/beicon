@@ -229,10 +229,10 @@ class ArticlesController extends Controller
             foreach ($recomended as $k => $value) {
 
                 if ($value->preview_img) {
-                    $recomended[$k]->preview_img = ImageSizes::getResizesName($value->preview_img, 'recomended');
+                    $recomended[$k]->preview_img = ImageSizes::getResizesName($value->preview_img, '1_1_352_exact');
                 }
                 if ($value->header_img) {
-                    $recomended[$k]->header_img = ImageSizes::getResizesName($value->header_img, 'recomended');
+                    $recomended[$k]->header_img = ImageSizes::getResizesName($value->header_img, '1_1_352_exact');
                 }
 
             }
@@ -528,10 +528,10 @@ $this->contentClass = 'one-column';
             foreach ($recomended as $k => $value) {
 
                 if ($value->preview_img) {
-                    $recomended[$k]->preview_img = ImageSizes::getResizesName($value->preview_img, 'recomended');
+                    $recomended[$k]->preview_img = ImageSizes::getResizesName($value->preview_img, '1_1_352_exact');
                 }
                 if ($value->header_img) {
-                    $recomended[$k]->header_img = ImageSizes::getResizesName($value->header_img, 'recomended');
+                    $recomended[$k]->header_img = ImageSizes::getResizesName($value->header_img, '1_1_352_exact');
                 }
 
             }
