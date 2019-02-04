@@ -13,7 +13,7 @@ if($article["header_img"]) {
 
 } ?>
 
-<div class="article-ajax-wraper" data-id="/<?=$article["url"]?>">
+<div class="article-ajax-wraper" data-id="<?=$article->sectionData->url.'/'.$article["url"]?>">
     <!-- Start Articles top filter -->
     <div class="articles-filter content-wrapper">
         <ul class="articles-filter__list">
@@ -329,10 +329,10 @@ if($nextArticleUrl) {
 
                 console.log(url);
                 // console.log(window.history.state);
-                if(window.history.state !== '/articles' + url) {
-                    console.error('/articles' + url);
-                    console.error(window.history.state);
-                    window.history.replaceState('/articles' + url, "Title", '/articles' + url);
+                if(window.history.state !== url) {
+                    // console.error(url);
+                    // console.error(window.history.state);
+                    window.history.replaceState(url, "Title", '/articles' + url);
 
                 }
 
