@@ -1,7 +1,9 @@
 .article-body {
     padding-left: 96px;
 }
-
+.articles-block_v2 .articles-block__col.articles-block__col_r {
+    margin-top: 30px;
+}
 
 
 article .article-body * {
@@ -185,7 +187,7 @@ iframe.instagram-media {
 }
 
 .gallery-fullscreen__inner .gallery-fullscreen__image-container {
-    display: block;
+    display: flex;
 }
 .gallery-fullscreen__inner .gallery-fullscreen__image-container img {
     max-height: 94vh;

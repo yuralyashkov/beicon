@@ -3,7 +3,9 @@ body {
     height: 100%;
 }
 
-
+.articles-block_v2 .articles-block__col.articles-block__col_r {
+    margin-top: 30px; 
+}
 img {display: block; max-width: 100%; height: auto;}
 
 .wrap {

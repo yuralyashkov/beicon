@@ -10,6 +10,8 @@ foreach ($head_articles as $i)
 
 $articles = $tmp;
 
+
+
 $bg = ImageSizes::getResizesName($articles[0]->header_img, '16_9_1040');
 $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
 ?>
@@ -24,38 +26,39 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
     <div class="top-articles-wrapper">
 
 
-        <? if(isset($articles[0])){ ?><h2><a href="<?=Url::to(['articles/view', 'url' => $articles[0]->url])?>"><?=$articles[0]->name?></a></h2><? } ?>
+
+        <?php if(isset($articles[0])){ ?><h2><a href="<?=Url::to(['articles/view', 'url' => $articles[0]->url])?>"><?=$articles[0]->name?></a></h2><?php } ?>
         <ul class="top-articles__list bl-wrapper">
-          <? if(isset($articles[1])) { ?>
-              <? $article = $articles[1]; ?>
+          <?php if(isset($articles[1])) { ?>
+              <?php $article = $articles[1]; ?>
             <li class="top-article__item">
                 <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>"><?=$article->name?></a></h3>
                 <div class="article__teaser__info clearfix">
                     <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                    <? if($article["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                    <?php if($article["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                 </div>
             </li>
-            <? } ?>
-          <? if(isset($articles[2])) { ?>
-              <? $article = $articles[2]; ?>
+            <?php } ?>
+          <?php if(isset($articles[2])) { ?>
+              <?php $article = $articles[2]; ?>
             <li class="top-article__item">
                 <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>"><?=$article->name?></a></h3>
                 <div class="article__teaser__info clearfix">
                     <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                    <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                    <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                 </div>
             </li>
-            <? } ?>
-          <? if(isset($articles[3])) { ?>
-              <? $article = $articles[3]; ?>
+            <?php } ?>
+          <?php if(isset($articles[3])) { ?>
+              <?php $article = $articles[3]; ?>
             <li class="top-article__item">
                 <h3><a href="<?=Url::to(['articles/view', 'url' => $article["url"]])?>"><?=$article->name?></a></h3>
                 <div class="article__teaser__info clearfix">
                     <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                    <? if($article["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                    <?php if($article["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                 </div>
             </li>
-            <? } ?>
+            <?php } ?>
         </ul>
     </div>
 </section>
@@ -65,7 +68,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
 <!-- Start Articles Block Type 1 -->
 <div class="articles-block articles-block_v1 bl-wrapper">
     <div class="articles__list col col_l">
-        <? if(isset($articles[4])) { $article = $articles[4];
+        <?php if(isset($articles[4])) { $article = $articles[4];
         $img = ImageSizes::getResizesName($article->preview_img, '16_9_1040');
         ?>
         <article class="article__item article__teaser_vertical el-wrapper clearfix">
@@ -76,13 +79,13 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
-        <? if(isset($articles[5])) { $article = $articles[5];
+        <?php } ?>
+        <?php if(isset($articles[5])) { $article = $articles[5];
         $img = ImageSizes::getResizesName($article->preview_img, 'mini');
         ?>
         <article class="article__teaser_small el-wrapper clearfix">
@@ -94,13 +97,13 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?>   <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?>   <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
-        <? if(isset($articles[6])) { $article = $articles[6];
+        <?php } ?>
+        <?php if(isset($articles[6])) { $article = $articles[6];
         $img = ImageSizes::getResizesName($article->preview_img, 'mini');
         ?>
         <article class="article__teaser_small el-wrapper clearfix">
@@ -112,13 +115,13 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?>  <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?>  <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
-        <? if(isset($articles[7])) { $article = $articles[7];
+        <?php } ?>
+        <?php if(isset($articles[7])) { $article = $articles[7];
         $img = ImageSizes::getResizesName($article->preview_img, 'mini');
         ?>
         <article class="article__teaser_small el-wrapper clearfix">
@@ -130,13 +133,13 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
-        <? if(isset($articles[8])) { $article = $articles[8];
+        <?php } ?>
+        <?php if(isset($articles[8])) { $article = $articles[8];
         $img = ImageSizes::getResizesName($article->preview_img, 'mini');
         ?>
         <article class="article__teaser_small el-wrapper clearfix">
@@ -148,16 +151,16 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
+        <?php } ?>
     </div>
     <div class="articles__list col col_c">
 
-        <? if(isset($articles[9])) { $article = $articles[9];
+        <?php if(isset($articles[9])) { $article = $articles[9];
             $img = ImageSizes::getResizesName($article->preview_img, 'mini');
             ?>
             <article class="article__teaser_small el-wrapper clearfix">
@@ -169,13 +172,13 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                         <h3><?=$article["name"]?></h3>
                         <div class="article__teaser__info">
                             <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                            <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                            <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                         </div>
                     </div>
                 </a>
             </article>
-        <? } ?>
-        <? if(isset($articles[10])) { $article = $articles[10];
+        <?php } ?>
+        <?php if(isset($articles[10])) { $article = $articles[10];
             $img = ImageSizes::getResizesName($article->preview_img, 'mini');
             ?>
             <article class="article__teaser_small el-wrapper clearfix">
@@ -187,13 +190,13 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                         <h3><?=$article["name"]?></h3>
                         <div class="article__teaser__info">
                             <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                            <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                            <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                         </div>
                     </div>
                 </a>
             </article>
-        <? } ?>
-        <? if(isset($articles[11])) { $article = $articles[11];
+        <?php } ?>
+        <?php if(isset($articles[11])) { $article = $articles[11];
         $img = ImageSizes::getResizesName($article->preview_img, '1_1_690');
         ?>
         <article class="article__item article__teaser_vertical el-wrapper clearfix">
@@ -206,18 +209,18 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
+        <?php } ?>
     </div>
     <div class="articles__list col col_r">
         <div class="banner-240-400">
             <a href="#" target="_blank"><div class="banner-240-400__inner" style="background-image: url('/basic/web/img/banner-240-400.jpg')"></div></a>
         </div>
-        <? if(isset($articles[12])) { $article = $articles[12];
+        <?php if(isset($articles[12])) { $article = $articles[12];
             $img = ImageSizes::getResizesName($article->preview_img, 'mini');
             ?>
             <article class="article__teaser_small el-wrapper clearfix">
@@ -229,12 +232,12 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                         <h3><?=$article["name"]?></h3>
                         <div class="article__teaser__info">
                             <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                            <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                            <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                         </div>
                     </div>
                 </a>
             </article>
-        <? } ?>
+        <?php } ?>
 
     </div>
 </div>
@@ -256,7 +259,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
 
 <div class="articles-block articles-block_v2 bl-wrapper">
     <div class="articles-block__col articles-block__col_l">
-        <?
+        <?php
 
         $n = 13;
         while ($n < 19) {
@@ -273,17 +276,17 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                             <h3><?= $article["name"] ?></h3>
                             <div class="article__teaser__info">
                                 <div class="article__teaser__date"><?= date('d.m.Y', strtotime($article["date_publish"])) ?></div>
-                                <? if ($article["views"] >= 5000) { ?>
+                                <?php if ($article["views"] >= 5000) { ?>
                                     <div class="article__teaser__views"><span
                                             class="views__num"><?= $article["views"] ?></span>
                                     <svg class="inline-svg views__icon">
                                         <use xlink:href="#visibility"></use>
-                                    </svg></div><? } ?>
+                                    </svg></div><?php } ?>
                             </div>
                         </div>
                     </a>
                 </article>
-            <? }
+            <?php }
             $n++;
         }
         ?>
@@ -291,7 +294,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
 
     </div>
     <div class="articles-block__col articles-block__col_r">
-        <? if(isset($articles[19])) { $article = $articles[19];
+        <?php if(isset($articles[19])) { $article = $articles[19];
         $img = ImageSizes::getResizesName($article->preview_img, '1_1_690');
         ?>
         <article class="article__teaser_vertical el-wrapper clearfix">
@@ -303,13 +306,13 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
-        <? if(isset($articles[20])) { $article = $articles[20];
+        <?php } ?>
+        <?php if(isset($articles[20])) { $article = $articles[20];
         $img = ImageSizes::getResizesName($article->preview_img, '1_1_690');
         ?>
         <article class="article__teaser_vertical el-wrapper clearfix">
@@ -321,12 +324,12 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
+        <?php } ?>
 
     </div>
 </div>
@@ -334,7 +337,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
 <!-- Start Articles Block Type 3 -->
 <div class="articles-block articles-block_v3 bl-wrapper">
     <div class="articles-block__list">
-        <? if(isset($articles[21])) { $article = $articles[21];
+        <?php if(isset($articles[21])) { $article = $articles[21];
         $img = ImageSizes::getResizesName($article->preview_img, '1_1_690');
         ?>
         <article class="article__item article__teaser_vertical el-wrapper clearfix">
@@ -346,13 +349,13 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
-        <? if(isset($articles[22])) { $article = $articles[22];
+        <?php } ?>
+        <?php if(isset($articles[22])) { $article = $articles[22];
         $img = ImageSizes::getResizesName($article->preview_img, '1_1_690');
         ?>
         <article class="article__item article__teaser_vertical el-wrapper clearfix">
@@ -364,13 +367,13 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
-        <? if(isset($articles[23])) { $article = $articles[23];
+        <?php } ?>
+        <?php if(isset($articles[23])) { $article = $articles[23];
         $img = ImageSizes::getResizesName($article->preview_img, '16_9_1040');
         ?>
         <article class="article__item article__teaser_vertical el-wrapper clearfix">
@@ -382,12 +385,12 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
                     <h3><?=$article["name"]?></h3>
                     <div class="article__teaser__info">
                         <div class="article__teaser__date"><?=date('d.m.Y', strtotime($article["date_publish"]))?></div>
-                        <? if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                        <?php if($article["views"] >= 5000) { ?><div class="article__teaser__views"><span class="views__num"><?=$article["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><?php } ?>
                     </div>
                 </div>
             </a>
         </article>
-        <? } ?>
+        <?php } ?>
     </div>
 </div>
 <!-- End Articles Block Type 3 -->

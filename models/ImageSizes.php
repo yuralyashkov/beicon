@@ -28,7 +28,7 @@ $nofile = false;
 
             $sizes = Image::$sizes;
             foreach ($sizes as $size){
-                if($size["postfix"] == $type && $size["origin"])
+                if($size["postfix"] == $type && isset($size["origin"]))
                     $msh = $size["origin"];
             }
 
