@@ -431,7 +431,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
 
 <script>
     $(document).ready(function() {
-        initSimpleSlider('.swiper-wrapper', 30, 16, 16, 8, 8);
+        initSimpleSlider('.recommend-slider', 30, 16, 16, 8, 8);
     });
 </script>
 
