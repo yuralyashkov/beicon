@@ -170,11 +170,9 @@ class SiteController extends Controller
 //        $articles = Articles::find()->where(['show_on_main' => 1, 'status' => 'publish'])->orderBy(['date_publish' => SORT_DESC])->orderBy('main_sort')->limit(17)->all();
 
 
-        $recomended = Articles::find()->where(['status' => 'publish', 'choise' => 1])->orderBy(['date_publish' => SORT_DESC])->limit(10)->all();
 
         return $this->render('index', [
-            'head_articles' => $articles,
-            'recomended' => $recomended
+            'head_articles' => $articles
         ]);
     }
 
