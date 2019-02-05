@@ -104,7 +104,6 @@ $config = [
                 'POST api/catupdate/<id>' => 'rarticles/catupdate',
 
                 "search/<query>" => 'articles/search',
-                '<section>/<url>/' => 'articles/view',
                 'articles/<url>/preview' => 'articles/preview',
                 'tags/<id>/' => 'tags/view',
                 'rss/<url>/' => 'site/rss',
@@ -119,7 +118,10 @@ $config = [
 
                 'sitemap.xml' => 'site/sitemap', //карта сайта
                 'robots.txt' => 'site/robots', //карта сайта
+
+                '<section>/<url>/' => 'articles/view',
                 '<url>' => 'sections/view',
+
             ],
         ],
 //        'urlManager' => [
