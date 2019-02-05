@@ -13,6 +13,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Articles;
 use app\models\Rss;
+use app\models\ImageSizes;
 use yii\helpers\Url;
 
 class SiteController extends Controller
@@ -169,7 +170,18 @@ class SiteController extends Controller
         $articles = Articles::find()->where(['show_on_main' => 1, 'status' => 'publish'])->orderBy(['date_publish' => SORT_DESC])->limit(25)->all();
 //        $articles = Articles::find()->where(['show_on_main' => 1, 'status' => 'publish'])->orderBy(['date_publish' => SORT_DESC])->orderBy('main_sort')->limit(17)->all();
         $recomended = Articles::find()->where(['status' => 'publish', 'choise' => 1])->orderBy(['date_publish' => SORT_DESC])->limit(10)->all();
+        if($recomended) {
+            foreach ($recomended as $k => $value) {
 
+                if ($value->preview_img) {
+                    $recomended[$k]->preview_img = ImageSizes::getResizesName($value->preview_img, '1_1_352_exact');
+                }
+                if ($value->header_img) {
+                    $recomended[$k]->header_img = ImageSizes::getResizesName($value->header_img, '1_1_352_exact');
+                }
+
+            }
+        }
 
         return $this->render('index', [
             'head_articles' => $articles,
