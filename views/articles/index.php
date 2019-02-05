@@ -243,37 +243,10 @@ if($article["header_img"]) {
     </article>
     <!-- End Article -->
 
-    <!-- Start Subscribe aside -->
-    <aside class="subscribe-block bl-wrapper">
-        <div class="el-wrapper">
-            <div class="subscribe-block__wrapper">
-                <div class="subscribe-block__col subscribe-block__col_l">
-                    <h2>Не пропусти самые вкусные новости</h2>
-                    <span class="subscribe-block__description">С нашей рассылкой не пропустишь</span>
-                    <?php $form = ActiveForm::begin([
-                        'id' => 'subscribeForm',
-                        'options' => [
-                            'class' => ''
-                        ],
-                        'fieldConfig' => [
-                            'options' => [
-                            ],
-                        ]
-                    ]); ?>
+    <?php
 
-                        <div class="input-in-line">
-                            <?= $form->field(new app\models\forms\CreateForm(), 'email')->textInput(['autofocus' => false, 'placeholder' => Yii::t('E-mail', $model->getAttributeLabel('email')), 'class' => '', 'id' => 'userEmailSubscribe'])->label(false) ?>
-                            <?= \yii\helpers\Html::submitButton(Yii::t('main', 'Подписаться'), ['class' => 'btn']); ?>
-                        </div>
-                        <?php ActiveForm::end(); ?>
-                </div>
-                <div class="subscribe-block__col subscribe-block__col_r">
-                    <div class="subscribe-block__bg"></div>
-                </div>
-            </div>
-        </div>
-    </aside>
-    <!-- End Subscribe aside -->
+    echo \app\widgets\Subscribe::widget();
+    ?>
 
 
 <? if($recomended) { ?>

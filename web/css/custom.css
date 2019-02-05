@@ -190,6 +190,16 @@ iframe.instagram-media {
     display: flex;
     justify-content: center;
 }
+
+.field-userEmailSubscribe {
+    width: 100%;
+}
+
+.help-block {
+    position: absolute;
+    color: red;
+}
+
 .gallery-fullscreen__inner .gallery-fullscreen__image-container img {
     max-height: 94vh;
     height: auto;

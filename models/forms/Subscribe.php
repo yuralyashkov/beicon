@@ -10,7 +10,7 @@ namespace app\models\forms;
 
 use app\models\Subscribers;
 
-class CreateForm extends \yii\base\Model
+class Subscribe extends \yii\base\Model
 {
 
     public $email;

@@ -1,12 +1,14 @@
 <?php
 
 namespace app\controllers;
+use app\models\forms\Subscribe;
 use app\models\Meta;
 use app\models\Sitemap;
 use Bitrix\Main\Context\Site;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\HttpException;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -159,6 +161,20 @@ class SiteController extends Controller
         ];
     }
 
+
+    public function actionAjaxSubscribe() {
+        if (Yii::$app->request->isAjax) {
+            $model = new Subscribe();
+            if ($model->load(Yii::$app->request->post())) {
+
+                    Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
+                    return \yii\widgets\ActiveForm::validate($model);
+
+            }
+        } else {
+            throw new HttpException(404 ,'Page not found');
+        }
+    }
     /**
      * Displays homepage.
      *

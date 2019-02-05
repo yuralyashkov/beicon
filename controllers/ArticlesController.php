@@ -64,6 +64,8 @@ class ArticlesController extends Controller
 
 
 
+
+
         $topic = Articles::find()->where(['topic_day' => 1, 'status' => 'publish'])->limit(10);
         if($topic)
             $topic = $topic->one();
