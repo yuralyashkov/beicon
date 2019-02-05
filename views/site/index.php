@@ -395,7 +395,39 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
 </div>
 <!-- End Articles Block Type 3 -->
 
+<section class="e-ch-articles-section">
+    <h2>Выбор редакции</h2>
+    <div class="recommend-slider swiper-container swiper-container-horizontal swiper-container-free-mode">
+        <ul class="e-ch-articles__list swiper-wrapper" style="">
 
+            <? foreach ($recomended as $recItem) { ?>
+                <li class="article__item swiper-slide" style="">
+                    <a href="<?=Url::to(['articles/view/', 'url' => $recItem["url"], 'section' => $recItem->sectionData->url])?>">
+                        <div class="article__teaser_half">
+                            <div class="image-container">
+                                <? if($recItem["preview_img"] != '' || $recItem["header_img"] != ''){ ?>
+                                    <img src="<?if(file_exists($_SERVER["DOCUMENT_ROOT"].UPLOAD_DIR.$recItem["header_img"])){
+                                        echo UPLOAD_DIR.$recItem["header_img"];
+                                    } elseif(file_exists($_SERVER["DOCUMENT_ROOT"].UPLOAD_DIR.$recItem["preview_img"])) echo UPLOAD_DIR.$recItem["preview_img"]; ?>"alt="">
+                                <? } ?>
+                            </div>
+
+
+
+                            <div class="info-wrapper">
+                                <h3><?=$recItem["name"]?></h3>
+                                <div class="article__teaser__info clearfix">
+                                    <div class="article__teaser__date"><? if($recItem["date_publish"] != '0000-00-00 00:00:00') { ?><?=date('d.m.Y', strtotime($recItem["date_publish"]))?><? } ?></div>
+                                    <? if($recItem["views"] >= 5000) { ?> <div class="article__teaser__views"><span class="views__num"><?=$recItem["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div><? } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            <? } ?>
+        </ul>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+</section>
 
 <!-- Start Subscribe aside -->
 <aside class="subscribe-block bl-wrapper">
