@@ -398,7 +398,7 @@ if($nextArticleUrl) {
         imgs.each(function(){
 
             // if img is not gallery
-            if($(this).closest('.gallery-tile').length < 1) {
+            if($(this).closest('.gallery-tile').length < 1 && $(this).closest('.gallery-mosaic').length < 1) {
                 var url = $(this).attr('src');
                 $(this).wrap('<a class="lightbox-lnk" href="' + url + '"></a>');
             }

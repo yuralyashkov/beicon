@@ -188,6 +188,7 @@ iframe.instagram-media {
 
 .gallery-fullscreen__inner .gallery-fullscreen__image-container {
     display: flex;
+    justify-content: center;
 }
 .gallery-fullscreen__inner .gallery-fullscreen__image-container img {
     max-height: 94vh;
