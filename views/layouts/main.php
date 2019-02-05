@@ -36,10 +36,11 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
-    <script src="/basic/web/packages/mosaic/masonry.pkgd.min.js"></script>
-    <script src="/basic/web/packages/mosaic/imagesloaded.pkgd.min.js"></script>
-    <script src="/basic/web/packages/swiper/js/swiper.js"></script>
-    <script src="/basic/web/js/script.js"></script>
+<!---->
+<!--    <script src="/basic/web/packages/mosaic/masonry.pkgd.min.js"></script>-->
+<!--    <script src="/basic/web/packages/mosaic/imagesloaded.pkgd.min.js"></script>-->
+<!--    <script src="/basic/web/packages/swiper/js/swiper.js"></script>-->
+<!--    <script src="/basic/web/js/script.js"></script>-->
 
 
 
@@ -47,6 +48,8 @@ AppAsset::register($this);
 </head>
 <body class="page-bg page-branding_l <? if(isset($this->context->body_id)) echo $this->context->body_id; ?>" id="" style="background-image: url('/basic/web/img/banners/branding-l.jpg'); background-color: #ba1a1d">
 <?php $this->beginBody() ?>
+
+
 
 
 <!-- Start Search Popup -->
@@ -499,6 +502,7 @@ AppAsset::register($this);
     <!-- End Social Login -->
 </div>
 <!-- End Sign in and Sign up Popup -->
+
 
 
 <?php
