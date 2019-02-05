@@ -62,11 +62,25 @@ class SectionsController extends Controller
 
             $articles = Articles::find()->where(['section' => $id, 'status' => 'publish'])->orderBy(['date_publish' => SORT_DESC]);
 
-            $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 19]);
+
+            $topic = Articles::find()->where(['section' => $id, 'status' => 'publish', 'section_topic' => 1])->orderBy(['date_publish' => SORT_DESC])->one();
+
+
+        // 18 статей если есть топик, 19 если нет
+            if($topic) {
+                $ps = 18;
+            } else $ps = 19;
+
+            $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => $ps]);
 
             $articles = $articles->offset($pages->offset)
                 ->limit($pages->limit)
                 ->all();
+
+            if(!$topic) {
+                $topic = $articles[7];
+                unset($articles[7]);
+            }
 
 
 
@@ -153,7 +167,8 @@ class SectionsController extends Controller
                 'section' => $model,
                 'articles' => $articles,
                 'ajax' => $ajax,
-                'limit' => $pages->pageCount
+                'limit' => $pages->pageCount,
+                'topic' => $topic
             ]);
         } else {
 
@@ -161,7 +176,8 @@ class SectionsController extends Controller
                 'section' => $model,
                 'articles' => $articles,
                 'ajax' => $ajax,
-                'limit' => $pages->pageCount
+                'limit' => $pages->pageCount,
+                'topic' => $topic
             ]);
         }
     }

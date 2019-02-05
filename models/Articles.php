@@ -201,6 +201,7 @@ class Articles extends ActiveRecord
             ['previous_status', 'safe'],
             ['moderator', 'safe'],
             ['old_preview_img_path', 'safe'],
+            ['section_topic', 'integer'],
         ];
     }
 
@@ -213,7 +214,7 @@ class Articles extends ActiveRecord
         die();
     }
 
-    public $searchParams = ['id', 'name', 'url', 'section', 'status', 'choise', 'view_type', 'date_modify', 'date_publish', 'date_create', 'author', 'preview_content', 'views', 'not_miss', 'topic_day', 'not_miss', 'show_on_main', 'main_sort'];
+    public $searchParams = ['id', 'name', 'url', 'section', 'status', 'choise', 'view_type', 'date_modify', 'date_publish', 'date_create', 'author', 'preview_content', 'views', 'not_miss', 'topic_day', 'not_miss', 'show_on_main', 'main_sort', 'section_topic'];
     public function search($query)
     {
         $res = Articles::find();

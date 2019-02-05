@@ -127,17 +127,17 @@ use app\models\ImageSizes;
 
     <div class="top-articles articles-block articles-block_v5 bl-wrapper">
         <div class="el-wrapper">
-            <? foreach ($articles as $k => $article) {
+            <? if ($topic) {
 
-                $img = ImageSizes::getResizesName($article->header_img, '16_9_1040');
+                $img = ImageSizes::getResizesName($topic->header_img, '16_9_1040');
                 ?>
-                <? unset($articles[$k]); break; } ?>
+                <? } ?>
             <!-- Background Image has to added as a style by script -->
             <div class="top-articles__bg" style="background-image: url('/uploads/<?=$img?>')"></div>
             <div class="article-overlay"></div>
             <div class="top-articles-wrapper">
 
-                <h2><a href="<?=Url::to(['articles/view', 'url' => $article["url"], 'section' => $article->sectionData->url])?>"><?=$article["name"]?></a></h2>
+                <h2><a href="<?=Url::to(['articles/view', 'url' => $topic["url"], 'section' => $topic->sectionData->url])?>"><?=$topic["name"]?></a></h2>
 
                 <div class="top-articles__list bl-wrapper">
                     <?php
