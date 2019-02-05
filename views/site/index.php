@@ -429,6 +429,12 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
 </section>
 
+<script>
+    $(document).ready(function() {
+        initSimpleSlider('.swiper-wrapper', 30, 16, 16, 8, 8);
+    });
+</script>
+
 <!-- Start Subscribe aside -->
 <aside class="subscribe-block bl-wrapper">
     <div class="el-wrapper">
