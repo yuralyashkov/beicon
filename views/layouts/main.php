@@ -36,10 +36,10 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
-    <script src="/basic/web/packages/mosaic/masonry.pkgd.min.js"></script>
-    <script src="/basic/web/packages/mosaic/imagesloaded.pkgd.min.js"></script>
-    <script src="/basic/web/packages/swiper/js/swiper.js"></script>
-    <script src="/basic/web/js/script.js"></script>
+    <script src="/packages/mosaic/masonry.pkgd.min.js"></script>
+    <script src="/packages/mosaic/imagesloaded.pkgd.min.js"></script>
+    <script src="/packages/swiper/js/swiper.js"></script>
+    <script src="/js/script.js"></script>
 
 
 
