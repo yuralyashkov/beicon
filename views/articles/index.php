@@ -1,5 +1,6 @@
 <?php
-
+use yii\helpers\Json;
+use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 use app\models\Socials;
 if($article["header_img"]) {
@@ -249,12 +250,22 @@ if($article["header_img"]) {
                 <div class="subscribe-block__col subscribe-block__col_l">
                     <h2>Не пропусти самые вкусные новости</h2>
                     <span class="subscribe-block__description">С нашей рассылкой не пропустишь</span>
-                    <form name="subscribeForm" id="subscribeForm" action="#" method="post">
+                    <?php $form = ActiveForm::begin([
+                        'id' => 'subscribeForm',
+                        'options' => [
+                            'class' => ''
+                        ],
+                        'fieldConfig' => [
+                            'options' => [
+                            ],
+                        ]
+                    ]); ?>
+
                         <div class="input-in-line">
-                            <input type="email" id="userEmailSubscribe" class="" name="userEmailSubscribe" value="" placeholder="E-mail">
-                            <button type="submit" class="btn" name="subscribeBtn">Подписаться</button>
+                            <?= $form->field(new app\models\forms\CreateForm(), 'email')->textInput(['autofocus' => false, 'placeholder' => Yii::t('E-mail', $model->getAttributeLabel('email')), 'class' => '', 'id' => 'userEmailSubscribe'])->label(false) ?>
+                            <?= \yii\helpers\Html::submitButton(Yii::t('main', 'Подписаться'), ['class' => 'btn']); ?>
                         </div>
-                    </form>
+                        <?php ActiveForm::end(); ?>
                 </div>
                 <div class="subscribe-block__col subscribe-block__col_r">
                     <div class="subscribe-block__bg"></div>
