@@ -52,7 +52,7 @@ AppAsset::register($this);
 
 
 </head>
-<body class="page-bg page-branding_l <? if(isset($this->context->body_id)) echo $this->context->body_id; ?>" id="" style="background-image: url('/img/branding-new.jpg'); ">
+<body class="page-bg page-branding_l <? if(isset($this->context->body_id)) echo $this->context->body_id; ?>" id="" style="background: #fcf2f0; ">
 <?php $this->beginBody() ?>
 
 
