@@ -2023,15 +2023,35 @@ p {
   font-size: 0.9rem;
 }
 .social-login__list {
-  display: -moz-flex;
-  display: -o-flex;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: space-between;
+  /*display: -moz-flex;*/
+  /*display: -o-flex;*/
+  /*display: -ms-flexbox;*/
+  /*display: flex;*/
+  /*justify-content: space-between;*/
   padding-left: 22px;
 }
 .social-login__item {
   background: none;
+}
+
+.social-login__item:focus {
+
+  outline: none;
+
+}
+.social-login__item + .social-login__item {
+
+  margin-left: 26px;
+}
+@media screen and (max-width: 1279px) {
+  .social-login__item + .social-login__item {
+    margin-left: 38px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .social-login__item + .social-login__item {
+    margin-left: 32px;
+  }
 }
 .social-login__item:focus {
   outline: none;
