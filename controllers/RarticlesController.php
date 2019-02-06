@@ -337,9 +337,10 @@ class RarticlesController extends ActiveController
         $post_id = \Yii::$app->request->queryParams;
         $post_id = (int)$post_id["id"];
         $item = Articles::findOne($post_id);
+        $oldTags = $item->tags;
         if(isset($post["tags"])) {
             $tags = $post["tags"];
-            $tags = $item->tags;
+//            $tags = $item->tags;
         }
         if(isset($post["persons"]))
             $persons = $post["persons"];
@@ -362,7 +363,8 @@ class RarticlesController extends ActiveController
                 if(isset($item->tags) && count($item->tags) > 0 && $item->tags != '' && isset($tags) && is_array($tags)) {
 
 
-                    foreach ($item->tags as $tag) {
+
+                    foreach ($oldTags as $tag) {
                         if (!in_array($tag, $tags)) {
 
                             $atag = Atags::find()->where(['tag_id' => $tag->id, 'article_id' => $post_id])->one();
