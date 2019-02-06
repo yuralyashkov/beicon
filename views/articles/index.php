@@ -56,7 +56,7 @@ if($article["header_img"]) {
                 </div>
                 <div class="left-block">
                     <!-- Add the .added class if the Article was added in Favorites articles list. And remove .added if the article was removed from the favorites list -->
-                    <button class="article__favorites added"><svg class="inline-svg fav-article-svg"><use xlink:href="#favArticle"></use></svg></button>
+                    <button class="article__favorites"><svg class="inline-svg fav-article-svg"><use xlink:href="#favArticle"></use></svg></button>
                     <div class="social-share__list_top">
                         <?
                         $socials = Socials::find()->orderBy(['sort' => SORT_ASC])->all();

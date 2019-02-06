@@ -521,7 +521,7 @@ if($this->context->id == 'sections' || $this->context->id == 'articles'){
 
     if(!isset($this->context->hide_header)){
     ?>
-    <header class="page-header underline page-wrapper">
+    <header class="page-header <?if(!isset($_GET['section'])) { ?>underline<? } ?> page-wrapper">
         <div class="menu-block__wrapper">
             <div class="menu-block__line menu-block__line_1 clearfix">
                 <div class="menu-block__logo col_r">
@@ -534,8 +534,10 @@ if($this->context->id == 'sections' || $this->context->id == 'articles'){
 
                     foreach ($sections as $section) {
                         if(isset($section["url"])){
+
+
                         ?>
-                        <li class="menu-block__menu-item <? if(isset($_GET["url"]) && $_GET["url"] == $section["url"]) echo 'active'; ?>"><a href="<?=Url::to(['sections/view/', 'url' => $section["url"]])?>"><?=$section["name"]?></a></li>
+                        <li class="menu-block__menu-item <? if((isset($_GET["url"]) && $_GET["url"] == $section["url"]) || (isset($_GET["section"]) && $_GET["section"] == $section["url"])) echo 'active'; ?>"><a href="<?=Url::to(['sections/view/', 'url' => $section["url"]])?>"><?=$section["name"]?></a></li>
                     <? } } ?>
                 </ul>
             </div>
