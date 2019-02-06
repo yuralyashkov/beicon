@@ -42,7 +42,13 @@ AppAsset::register($this);
 <!--    <script src="/basic/web/packages/swiper/js/swiper.js"></script>-->
 <!--    <script src="/basic/web/js/script.js"></script>-->
 
+    <?php
 
+    $jsheader = \app\models\Meta::findOne(['keyname' => 'jsheader']);
+    if($jsheader){
+        echo $jsheader->value;
+    }
+    ?>
 
 
 </head>
@@ -50,6 +56,13 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 
+<?php
+
+$metrika = \app\models\Meta::findOne(['keyname' => 'ya_metrika']);
+if($metrika){
+    echo $metrika->value;
+}
+?>
 
 
 <!-- Start Search Popup -->
