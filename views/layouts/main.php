@@ -478,11 +478,9 @@ if($metrika){
 
     <!-- Start Sign Up Body -->
     <div class="sp-content-wrapper slide-page__body" id="signUpContent">
-        <form name="signUp" action="#" method="post" id="signUpForm">
-            <label for="userEmailReg">E-mail</label>
-            <input type="email" name="userEmailReg" id="userEmailReg" value="">
-            <button type="submit" class="btn" id="reg-submit-btn">Зарегистрироваться</button>
-        </form>
+
+
+      <? echo \app\widgets\Registration::widget()?>
 
         <div class="no-enter">
             <div class="not-reg"><button class="sign-in__btn to-login">У меня уже есть аккаунт</button></div>
