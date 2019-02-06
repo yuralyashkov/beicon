@@ -11,7 +11,7 @@ class Subscribe extends Widget {
         $model = new SubscribeForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-
+            $model->createSubscriber();
 
             return $this->render('subscribeWidget', ['model' => $model, 'status' => 'ok']);
         } else {

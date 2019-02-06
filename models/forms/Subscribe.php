@@ -51,7 +51,7 @@ class Subscribe extends \yii\base\Model
             return $subscriber->id;
 
 
-        }
+        } else return false;
 
     }
 
