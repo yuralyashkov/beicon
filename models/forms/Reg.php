@@ -10,6 +10,8 @@ namespace app\models\forms;
 
 //use app\models\Subscribers;
 
+use app\models\User;
+
 class Reg extends \yii\base\Model
 {
 
@@ -35,6 +37,13 @@ class Reg extends \yii\base\Model
 
     public function reg(){
         if($this->validate()){
+            $user = new User();
+            $user->email = $this->email;
+            $user->username = $this->email;
+            $user->password = md5(rand(1111111, 9999999));
+            $user->status = 0;
+            $user->role = 'user';
+            $user->save();
 //            $subscriber = new Subscribers();
 //            $subscriber->email = $this->email;
 //            $subscriber->active = 0;
@@ -49,7 +58,14 @@ class Reg extends \yii\base\Model
 //                ->send();
 //
 //            return $subscriber->id;
-                return true;
+            \Yii::$app->mailer->compose('reg', [
+                'content' => '#'
+            ])->setTo($this->email)
+                ->setFrom('noreply@beicon.it-sfera.ru')
+                ->setSubject('Спасибо за регистрацию')
+                ->send();
+
+            return $user->id;
 
         } else return false;
 
