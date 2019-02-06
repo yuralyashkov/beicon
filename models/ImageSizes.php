@@ -23,8 +23,8 @@ $nofile = false;
         }
 
         $msh = false;
-//        if(1 == 1) {
-        if(!file_exists($_SERVER["DOCUMENT_ROOT"] . UPLOAD_DIR . $fname[0] . '_' . $type . '.' . $fname[1])) {
+        if(1 == 1) {
+//        if(!file_exists($_SERVER["DOCUMENT_ROOT"] . UPLOAD_DIR . $fname[0] . '_' . $type . '.' . $fname[1])) {
 
             $sizes = Image::$sizes;
             foreach ($sizes as $size){
