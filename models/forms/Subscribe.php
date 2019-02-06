@@ -41,9 +41,9 @@ class Subscribe extends \yii\base\Model
 
             $subscriber->save();
 
-            \Yii::$app->mailer->compose('layouts/html', [
+            \Yii::$app->mailer->compose('subscribe', [
                 'content' => '#'
-            ])->setTo($this->email)
+            ])->setTo($subscriber->email)
                 ->setFrom('noreply@beicon.it-sfera.ru')
                 ->setSubject('Подтверждение подписки')
                 ->send();
