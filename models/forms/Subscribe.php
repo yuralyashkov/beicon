@@ -33,9 +33,24 @@ class Subscribe extends \yii\base\Model
         ];
     }
 
-    public function createCompany(){
+    public function createSubscriber(){
         if($this->validate()){
-            return true;
+            $subscriber = new Subscribers();
+            $subscriber->email = $this->email;
+            $subscriber->active = 0;
+
+            $subscriber->save();
+
+            \Yii::$app->mailer->compose('layouts/html', [
+                'content' => '#'
+            ])->setTo($this->email)
+                ->setFrom('beicon.it-sfera.ru')
+                ->setSubject('Подтверждение подписки')
+                ->send();
+
+            return $subscriber->id;
+
+
         }
 
     }
