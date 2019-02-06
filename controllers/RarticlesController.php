@@ -95,7 +95,7 @@ class RarticlesController extends ActiveController
     public function actionRecomended($id){
         $query = \Yii::$app->request->get();
         $sort = null;
-        $res = Recomended::find()->where(['article_id' => $id])->andWhere(['status' => 'publish'])->orderBy(['date_publish' => SORT_DESC]);
+        $res = Recomended::find()->where(['article_id' => $id]);
 
 
         $array = $res->all();
@@ -106,7 +106,7 @@ class RarticlesController extends ActiveController
         }
         $items = $result;
 
-        $result = Articles::find()->all();
+        $result = Articles::find()->where(['status'=>'publish'])->orderBy(['date_publish' => SORT_DESC])->all();
 
 
         if(isset($query["section_id"])){
