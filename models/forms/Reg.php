@@ -61,7 +61,7 @@ class Reg extends \yii\base\Model
             \Yii::$app->mailer->compose('reg', [
                 'content' => '#'
             ])->setTo($this->email)
-                ->setFrom('noreply@beicon.it-sfera.ru')
+                ->setFrom('info@beicon.ru')
                 ->setSubject('Спасибо за регистрацию')
                 ->send();
 
