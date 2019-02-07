@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
         <div class="subscribe-block__wrapper">
             <div class="subscribe-block__col subscribe-block__col_l">
                 <h2>Не пропусти самые вкусные новости</h2>
-                <span class="subscribe-block__description">С нашей рассылкой не пропустишь</span>
+<!--                <span class="subscribe-block__description">С нашей рассылкой не пропустишь</span>-->
 
                 <? if(isset($status) && $status == 'ok') { ?>
 
