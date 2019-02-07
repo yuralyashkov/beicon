@@ -218,7 +218,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
     </div>
     <div class="articles__list col col_r">
         <div class="banner-240-400">
-            <a href="#" target="_blank"><div class="banner-240-400__inner" style="background-image: url('/basic/web/img/banner-240-400.jpg')"></div></a>
+            <a href="https://www.instagram.com/beicon.ru/" target="_blank"><div class="banner-240-400__inner" style="background-image: url('/basic/web/img/banner-240-400.jpg')"></div></a>
         </div>
         <?php if(isset($articles[12])) { $article = $articles[12];
             $img = ImageSizes::getResizesName($article->preview_img, 'mini');

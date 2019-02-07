@@ -98,7 +98,7 @@ if($article["header_img"]) {
                 <div class="banner-240-400-wrapper col_r">
                     <div class="bl-wrapper">
                         <div class="banner-240-400">
-                            <a href="#" target="_blank"><div class="banner-240-400__inner" style="background-image: url('/basic/web/img/banner-240-400.jpg')"></div></a>
+                            <a href="https://www.instagram.com/beicon.ru/" target="_blank"><div class="banner-240-400__inner" style="background-image: url('/basic/web/img/banner-240-400.jpg')"></div></a>
                         </div>
                     </div>
                 </div>
@@ -215,7 +215,7 @@ if($article["header_img"]) {
                 <div class="banner-240-400-wrapper">
                     <div class="bl-wrapper">
                         <div class="banner-240-400">
-                            <a href="#" target="_blank"><div class="banner-240-400__inner" style="background-image: url('/basic/web/img/banner-240-400.jpg')"></div></a>
+                            <a href="https://www.instagram.com/beicon.ru/" target="_blank"><div class="banner-240-400__inner" style="background-image: url('/basic/web/img/banner-240-400.jpg')"></div></a>
                         </div>
                     </div>
                 </div>
