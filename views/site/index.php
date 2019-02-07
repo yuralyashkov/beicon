@@ -251,7 +251,7 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
     <div class="el-wrapper">
         <a href="#" target="_blank">
             <!-- Add background-image for banne and background-color for banner-wrapper -->
-            <div class="inline-banner__inner" style="background-image: url('/basic/web/img/inline-banner.jpg'); background-color: #eeedf2"></div>
+            <div class="inline-banner__inner" style=" background-color: #fdecec"></div>
         </a>
     </div>
 </div>
