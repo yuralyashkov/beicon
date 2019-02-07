@@ -107,12 +107,12 @@ if($article["header_img"]) {
                 <div class="sponsor sponsor_format-1 col_r">
                     <div class="bl-wrapper">
                         <!-- Start Sponsor Block Format 1 -->
-                        <div class="sponsor_inner">
-                            <div class="sponsor__text">
-                                <p class="sponsor__text_main">При поддержке Vichy</p>
-                            </div>
-                            <div class="sponsor__img"><img src="/basic/web/img/sponsor-img-format-1.jpg" alt="" width="216" height="79"></div>
-                        </div>
+<!--                        <div class="sponsor_inner">-->
+<!--                            <div class="sponsor__text">-->
+<!--                                <p class="sponsor__text_main">При поддержке Vichy</p>-->
+<!--                            </div>-->
+<!--                            <div class="sponsor__img"><img src="/basic/web/img/sponsor-img-format-1.jpg" alt="" width="216" height="79"></div>-->
+<!--                        </div>-->
                         <!-- End Sponsor Block Format 1 -->
 
                         <!-- Start Sponsor Block Format 2 -->
