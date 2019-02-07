@@ -55,7 +55,7 @@ class ImageController extends Controller
                     if($model->uploadGalleryItem($f["gallery_id"])) {
                         $gallery->url = '/galleries/' . $f["gallery_id"] . '/' . $model->sname;
                         $gallery->save();
-                        return ['success' => true, 'message' => 'Gallery Item Saved', 'location' => 'http://beicon.it-sfera.ru/uploads/galleries/' . $f["gallery_id"] . '/' . $model->sname, 'gallery_id' => $f["gallery_id"]];
+                        return ['success' => true, 'message' => 'Gallery Item Saved', 'location' => 'http://beicon.ru/uploads/galleries/' . $f["gallery_id"] . '/' . $model->sname, 'gallery_id' => $f["gallery_id"]];
 
                     }
                 }
@@ -65,8 +65,8 @@ class ImageController extends Controller
                     $path = '';
                     foreach ($filename as $k => $cpath){
                         if($k == count($filename)-1) continue;
-                        if($cpath == 'beicon.it-sfera.ru') continue;
-                        if($cpath == 'beicon.it-sfera.ru:80') continue;
+                        if($cpath == 'beicon.ru') continue;
+                        if($cpath == 'beicon.ru:80') continue;
                         if($cpath == 'http:') continue;
                         if($cpath == 'http:/') continue;
                         if($cpath == 'http://') continue;
@@ -74,7 +74,7 @@ class ImageController extends Controller
                         $path.=$cpath.'/';
                     }
                     $model->uploadResize($filename[count($filename)-1], $f["postfix"], $path);
-                    return ['success' => true, 'message' => 'File saved.', 'location' => 'http://beicon.it-sfera.ru/uploads/' . $model->sname];
+                    return ['success' => true, 'message' => 'File saved.', 'location' => 'http://beicon.ru/uploads/' . $model->sname];
                 } elseif ($model->upload()) {
                     // file is uploaded successfully
 
@@ -102,7 +102,7 @@ class ImageController extends Controller
                         if($res->save()) {
 
 
-                           return ['success' => true, 'message' => 'File saved.', 'article_id' => $f["article_id"], 'img_type' => $f["img_type"], 'location' => 'http://beicon.it-sfera.ru/uploads/' . $model->sname];
+                           return ['success' => true, 'message' => 'File saved.', 'article_id' => $f["article_id"], 'img_type' => $f["img_type"], 'location' => 'http://beicon.ru/uploads/' . $model->sname];
 
                        } else {
                            return ['success' => false, 'message' => $res->getErrors()];
@@ -117,13 +117,13 @@ class ImageController extends Controller
                         if($res->save()) {
 
 
-                            return ['success' => true, 'message' => 'File saved.', 'pnews_id' => $f["pnews_id"], 'location' => 'http://beicon.it-sfera.ru/uploads/' . $model->sname];
+                            return ['success' => true, 'message' => 'File saved.', 'pnews_id' => $f["pnews_id"], 'location' => 'http://beicon.ru/uploads/' . $model->sname];
                         }
 
                     } elseif(isset($f["path"])) {
 
                     } else {
-                        return ['success' => true, 'message' => 'File saved.', 'id_field' => $f["id_field"], 'location' => 'http://beicon.it-sfera.ru/uploads/'.$model->sname];
+                        return ['success' => true, 'message' => 'File saved.', 'id_field' => $f["id_field"], 'location' => 'http://beicon.ru/uploads/'.$model->sname];
                     }
                 }
                 else return ['success' => false, 'message' => 'Could not save file.'];

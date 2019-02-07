@@ -294,7 +294,7 @@ class ArticlesController extends Controller
                 if($model->header_img) $img = $model->header_img; else $img = $model->preview_img;
                 \Yii::$app->view->registerMetaTag([
                     'name' => 'og:image',
-                    'content' => 'http://beicon.it-sfera.ru/uploads/'.$img
+                    'content' => 'http://beicon.ru/uploads/'.$img
                 ]);
             }
 

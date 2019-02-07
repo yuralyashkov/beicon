@@ -52,7 +52,7 @@ class Rss extends \yii\db\ActiveRecord
     public function fields(){
         $json = parent::fields ();
         $json["path"] = function (){
-            return 'http://beicon.it-sfera.ru/rss/'.$this->url;
+            return 'http://beicon.ru/rss/'.$this->url;
         };
         return $json;
     }
