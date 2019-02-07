@@ -436,25 +436,10 @@ $bg2 = ImageSizes::getResizesName($articles[0]->header_img, '9_16_352');
 </script>
 
 <!-- Start Subscribe aside -->
-<aside class="subscribe-block bl-wrapper">
-    <div class="el-wrapper">
-        <div class="subscribe-block__wrapper">
-            <div class="subscribe-block__col subscribe-block__col_l">
-                <h2>Не пропусти самые вкусные новости</h2>
-                <span class="subscribe-block__description">С нашей рассылкой не пропустишь</span>
-                <form name="subscribeForm" id="subscribeForm" action="#" method="post">
-                    <div class="input-in-line">
-                        <input type="email" id="userEmailSubscribe" class="" name="userEmailSubscribe" value="" placeholder="E-mail">
-                        <button type="submit" class="btn" name="subscribeBtn">Подписаться</button>
-                    </div>
-                </form>
-            </div>
-            <div class="subscribe-block__col subscribe-block__col_r">
-                <div class="subscribe-block__bg"></div>
-            </div>
-        </div>
-    </div>
-</aside>
+<?php
+
+echo \app\widgets\Subscribe::widget();
+?>
 <!-- End Subscribe aside -->
 
 <script>
