@@ -118,7 +118,7 @@ use app\models\ImageSizes;
         <div class="el-wrapper">
             <a href="#" target="_blank">
                 <!-- Add background-image for banne and background-color for banner-wrapper -->
-                <div class="inline-banner__inner" style="background-image:  background-color: #eeedf2"></div>
+                <div class="inline-banner__inner" style=" background-color: #eeedf2"></div>
             </a>
         </div>
     </div>
