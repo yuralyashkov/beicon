@@ -31,7 +31,7 @@ use app\models\ImageSizes;
                             // console.log(res);
                             $('#loader').remove();
                             $('.catalog-section').eq(0).append(res);
-                            window.history.replaceState("object or string", "Title", '/tags/<?=$section["id"]?>?page='+page);
+                            window.history.replaceState("object or string", "Title", '/tags/<?=$section["url"]?>?page='+page);
                             page = page+1;
                         },
                         error: function (res) {
