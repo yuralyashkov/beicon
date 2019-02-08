@@ -6,6 +6,10 @@
 
 # Mod_Rewrite
 <IfModule mod_rewrite.c>
+
+RewriteCond %{THE_REQUEST} \s/+(.+?)/+[?\s]
+RewriteRule /$ /%1 [R,L]
+
   # Enable symlinks
   Options +FollowSymlinks
   # Enable mod_rewrite
