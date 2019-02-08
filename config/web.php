@@ -117,7 +117,7 @@ $config = [
 
                 "search/<query>" => 'articles/search',
                 'articles/<url>/preview' => 'articles/preview',
-                'tags/<id>/' => 'tags/view',
+                'tags/<url>/' => 'tags/view',
                 'rss/<url>/' => 'site/rss',
 
                 'page/<url>/' => 'p/view',

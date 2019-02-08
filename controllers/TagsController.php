@@ -20,13 +20,13 @@ class TagsController extends Controller
 
 
 
-    public function actionView($id){
-        $tag = Tags::findOne(['id' => $id]);
+    public function actionView($url){
+        $tag = Tags::findOne(['url' => $url]);
         if($tag === null){
             throw new NotFoundHttpException;
         }
 
-        $atags = Atags::find()->where(['tag_id' => $id])->all();
+        $atags = Atags::find()->where(['tag_id' => $url])->all();
         $articleIds = [];
         foreach ($atags as $atag)
             $articleIds[] = $atag["article_id"];
@@ -52,7 +52,7 @@ class TagsController extends Controller
 //        }
 
 
-        $seo = Seo::find()->where(['tbl' => 'tags', 'id_record' => $id])->one();
+        $seo = Seo::find()->where(['tbl' => 'tags', 'id_record' => $tag->id])->one();
         if($seo) {
             \Yii::$app->view->title = $seo->title;
 

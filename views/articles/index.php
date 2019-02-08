@@ -47,7 +47,7 @@ if($article["header_img"]) {
                 <div class="article__keywords">
                     <? foreach ($article->tags as $tag){ ?>
 
-                    <a href="<?=Url::to(['tags/view/', 'id' => $tag["id"]])?>"><?=$tag->name?></a>
+                    <a href="<?=Url::to(['tags/view/', 'url' => $tag["url"]])?>"><?=$tag->name?></a>
                     <? } ?>
 
 
@@ -174,7 +174,7 @@ if($article["header_img"]) {
 
 
                 <div class="article__keywords article__keywords_bottom">  <? foreach ($article->tags as $tag){ ?>
-                        <a href="<?=Url::to(['tags/view/', 'id' => $tag["id"]])?>"><?=$tag->name?></a>
+                        <a href="<?=Url::to(['tags/view/', 'url' => $tag["url"]])?>"><?=$tag->name?></a>
                     <? } ?></div>
 
             </div>

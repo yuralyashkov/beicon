@@ -50,7 +50,7 @@ class Seo extends \yii\db\ActiveRecord
             }
             if($this->tbl == 'tags'){
                 $article = Tags::findOne($this->id_record);
-                return Url::to(['tags/view', 'id' => $article->id]);
+                return Url::to(['tags/view', 'url' => $article->url]);
             }
             if($this->tbl == 'persons'){
                 $article = Persons::findOne($this->id_record);
