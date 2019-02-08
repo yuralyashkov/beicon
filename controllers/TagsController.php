@@ -26,7 +26,7 @@ class TagsController extends Controller
             throw new NotFoundHttpException;
         }
 
-        $atags = Atags::find()->where(['tag_id' => $url])->all();
+        $atags = Atags::find()->where(['tag_id' => $tag->id])->all();
         $articleIds = [];
         foreach ($atags as $atag)
             $articleIds[] = $atag["article_id"];
