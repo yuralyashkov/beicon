@@ -24,7 +24,7 @@ use app\models\ImageSizes;
                     $('.catalog-section').eq(0).append('<div id="loader"><img src="/basic/web/img/loader.gif"></div>');
                     $.ajax({
                         type: 'get',
-                        url: '/tags/<?=$section["id"]?>?page='+(page+1),
+                        url: '/tags/<?=$section["url"]?>?page='+(page+1),
                         dataType: 'html',
                         success: function (res) {
                             loading = false;
