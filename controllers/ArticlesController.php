@@ -57,7 +57,7 @@ class ArticlesController extends Controller
         }
 
         $model = Articles::find()->where(['url' => $url])->andWhere(['status' => 'publish'])->with('tags')->one();
-        if ($model === null) {
+        if ($model === null || $model->section != $section->id) {
             throw new NotFoundHttpException;
         }
         $id = $model->id;
