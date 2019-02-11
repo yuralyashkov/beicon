@@ -67,7 +67,7 @@ class SectionsController extends Controller
 
 
         // 18 статей если есть топик, 19 если нет
-            if($topic) {
+            if($topic->count() > 0) {
                 $ps = 18;
                 $pagesTopic = new Pagination(['totalCount' => $topic->count(), 'pageSize' => 1]);
                 $topic = $articles->offset($pagesTopic->offset)
