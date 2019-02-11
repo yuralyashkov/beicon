@@ -63,7 +63,7 @@ class SectionsController extends Controller
             $articles = Articles::find()->where(['section' => $id, 'status' => 'publish'])->orderBy(['date_publish' => SORT_DESC]);
 
 
-            $topic = Articles::find()->where(['section' => $id, 'status' => 'publish', 'section_topic' => 1])->orderBy(['date_publish' => SORT_DESC])->one();
+            $topic = Articles::find()->where(['section' => $id, 'status' => 'publish', 'section_topic' => 1])->orderBy(['date_publish' => SORT_DESC]);
 
 
         // 18 статей если есть топик, 19 если нет
@@ -72,7 +72,7 @@ class SectionsController extends Controller
                 $pagesTopic = new Pagination(['totalCount' => $topic->count(), 'pageSize' => 1]);
                 $topic = $articles->offset($pagesTopic->offset)
                     ->limit($pagesTopic->limit)
-                    ->all();
+                    ->one();
 
             } else $ps = 19;
 
