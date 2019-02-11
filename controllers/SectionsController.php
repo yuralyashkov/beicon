@@ -66,6 +66,8 @@ class SectionsController extends Controller
             $topic = Articles::find()->where(['section' => $id, 'status' => 'publish', 'section_topic' => 1])->orderBy(['date_publish' => SORT_DESC]);
 
 
+            print_r($topic->count());
+
         // 18 статей если есть топик, 19 если нет
             if($topic->count() > 0) {
                 $ps = 18;
@@ -73,6 +75,7 @@ class SectionsController extends Controller
                 $topic = $articles->offset($pagesTopic->offset)
                     ->limit($pagesTopic->limit)
                     ->one();
+
 
             } else $ps = 19;
 
