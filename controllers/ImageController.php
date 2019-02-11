@@ -69,8 +69,11 @@ class ImageController extends Controller
                         if($cpath == 'beicon.ru:80') continue;
                         if($cpath == 'beicon.ru:443') continue;
                         if($cpath == 'http:') continue;
+                        if($cpath == 'https:') continue;
                         if($cpath == 'http:/') continue;
+                        if($cpath == 'https:/') continue;
                         if($cpath == 'http://') continue;
+                        if($cpath == 'https://') continue;
 
                         $path.=$cpath.'/';
                     }
