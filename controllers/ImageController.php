@@ -66,8 +66,11 @@ class ImageController extends Controller
                     foreach ($filename as $k => $cpath){
                         if($k == count($filename)-1) continue;
                         if($cpath == 'beicon.ru') continue;
+                        if($cpath == 'www.beicon.ru') continue;
                         if($cpath == 'beicon.ru:80') continue;
+                        if($cpath == 'www.beicon.ru:80') continue;
                         if($cpath == 'beicon.ru:443') continue;
+                        if($cpath == 'www.beicon.ru:443') continue;
                         if($cpath == 'http:') continue;
                         if($cpath == 'https:') continue;
                         if($cpath == 'http:/') continue;
