@@ -66,18 +66,29 @@ class SectionsController extends Controller
             $topic = Articles::find()->where(['section' => $id, 'status' => 'publish', 'section_topic' => 1])->orderBy(['date_publish' => SORT_DESC]);
 
 
-            print_r($topic->count());
 
         // 18 статей если есть топик, 19 если нет
             if($topic->count() > 0) {
                 $ps = 18;
-                $pagesTopic = new Pagination(['totalCount' => $topic->count(), 'pageSize' => 1]);
-                $topic = $articles->offset($pagesTopic->offset)
-                    ->limit($pagesTopic->limit)
-                    ->one();
 
+                if(\Yii::$app->request->get('page') > $topic->count()) {
+                    $topic = false;
+                    $ps = 19;
+                }else {
+                    $pagesTopic = new Pagination(['totalCount' => $topic->count(), 'pageSize' => 1]);
+                    $topic = $topic->offset($pagesTopic->offset)
+                        ->limit($pagesTopic->limit)
+                        ->one();
 
-            } else $ps = 19;
+                }
+
+//                print_r($topic);
+//
+
+            } else {
+                $ps = 19;
+                $topic = false;
+            }
 
             $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => $ps]);
 
@@ -88,6 +99,7 @@ class SectionsController extends Controller
             if(!$topic) {
                 $topic = $articles[7];
                 unset($articles[7]);
+
             }
 
 
@@ -101,6 +113,8 @@ class SectionsController extends Controller
 //            }
 //        }
 
+//        print_r($topic);
+//            die();
 
         $seo = Seo::find()->where(['tbl' => 'sections', 'id_record' => $id])->one();
         if($seo) {
