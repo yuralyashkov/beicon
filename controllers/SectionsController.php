@@ -102,6 +102,10 @@ class SectionsController extends Controller
 
             }
 
+        if (\Yii::$app->request->get('page') && \Yii::$app->request->get('page') > $pages->pageCount) {
+            throw new NotFoundHttpException;
+        }
+
 
 
 //        foreach ($articles as $k => $article){

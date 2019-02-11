@@ -18,8 +18,9 @@ use app\models\ImageSizes;
             <? } ?>
 
             $(window).scroll(function () {
-                if($(window).scrollTop()+$(window).height()>=$(document).height() && !loading && page < <?=$limit?>){
+                if($(window).scrollTop()+($(window).height()+50)>=$(document).height() && !loading && page < <?=$limit?>){
                     console.log('page - ' +page);
+                    console.log('Подгрузка страницы ' + page);
                     loading = true;
                     $('.catalog-section').eq(0).append('<div id="loader"><img src="/basic/web/img/loader.gif"></div>');
                     $.ajax({
@@ -28,6 +29,8 @@ use app\models\ImageSizes;
                         dataType: 'html',
                         success: function (res) {
                             loading = false;
+
+                            console.log('Успешная подгрузка страницы ' + page);
                             // console.log(res);
                             $('#loader').remove();
                             $('.catalog-section').eq(0).append(res);
@@ -36,6 +39,9 @@ use app\models\ImageSizes;
                         },
                         error: function (res) {
                             $('.catalog-section').eq(0).append('<h1>Ошибка загрузки данных.</h1>');
+
+                            console.log('Ошибка');
+                            console.log(res);
                         }
                     })
                 }
