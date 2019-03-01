@@ -25,6 +25,9 @@ use yii\filters\auth\QueryParamAuth;
 class ArticlesController extends Controller
 {
 
+
+
+
     CONST API_KEY = 'Pj55UTx5eAb34fqVCzfuR9jxrfk8Fz';
     public $modelClass = 'app\models\Articles';
 
@@ -57,12 +60,11 @@ class ArticlesController extends Controller
         }
 
         $model = Articles::find()->where(['url' => $url])->andWhere(['status' => 'publish'])->with('tags')->one();
+//        $model = Articles::find()->where(['url' => $url])->andWhere(['status' => 'publish'])->andWhere(['>=', 'date_publish', date('Y-m-d H:i:s')])->with('tags')->one();
         if ($model === null || $model->section != $section->id) {
             throw new NotFoundHttpException;
         }
         $id = $model->id;
-
-
 
 
 
@@ -367,7 +369,6 @@ $this->contentClass = 'one-column';
             throw new NotFoundHttpException;
         }
         $id = $model->id;
-
 
 
         $topic = Articles::find()->where(['topic_day' => 1])->limit(10);

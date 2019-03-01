@@ -168,7 +168,7 @@ class Gallery extends \yii\db\ActiveRecord
     }
 
     public function getItems(){
-        return $this->hasMany(GalleryItems::className(), ['gallery_id' => 'id'])->orderBy(['sort'=>SORT_ASC]);
+        return $this->hasMany(GalleryItems::className(), ['gallery_id' => 'id'])->orderBy(['sort'=>SORT_ASC, 'id' => SORT_ASC]);
     }
 
 }

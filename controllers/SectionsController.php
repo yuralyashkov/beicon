@@ -60,7 +60,7 @@ class SectionsController extends Controller
             }
             $id = $model->id;
 
-            $articles = Articles::find()->where(['section' => $id, 'status' => 'publish'])->orderBy(['date_publish' => SORT_DESC]);
+            $articles = Articles::find()->where(['section' => $id, 'status' => 'publish'])->andWhere(['<=', 'date_publish', date('Y-m-d H:i:s')])->orderBy(['date_publish' => SORT_DESC]);
 
 
             $topic = Articles::find()->where(['section' => $id, 'status' => 'publish', 'section_topic' => 1])->orderBy(['date_publish' => SORT_DESC]);

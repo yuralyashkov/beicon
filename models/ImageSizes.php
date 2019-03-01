@@ -24,7 +24,7 @@ $nofile = false;
 
         $msh = false;
 //        if(1 == 1) {
-        if(!file_exists($_SERVER["DOCUMENT_ROOT"] . UPLOAD_DIR . $fname[0] . '_' . $type . '.' . $fname[1])) {
+        if(!file_exists($_SERVER["DOCUMENT_ROOT"] . UPLOAD_DIR . $fname[0] . '_' . $type . '.' . $fname[1]) || strpos($type, 'nocrop')) {
 
             $sizes = Image::$sizes;
             foreach ($sizes as $size){
@@ -40,6 +40,10 @@ $nofile = false;
 } else {
 $nofile = true;
     $file = \Yii::getAlias('@app/web/img/nophoto.jpg');
+}
+
+if($ifGallery || strpos($type, 'nocrop')){
+    $file = \Yii::getAlias('@app/web/uploads/' . $fname[0] .'.' . $fname[1]);
 }
 
 //echo $file;
@@ -81,6 +85,7 @@ $nofile = true;
 
                         if(!$nofile) {
                             $image->save($_SERVER["DOCUMENT_ROOT"] . UPLOAD_DIR . $fname[0] . '_' . $size["postfix"] . '.' . $fname[1], $quality = 100);
+
                         } else {
                             $image->save($_SERVER["DOCUMENT_ROOT"] . UPLOAD_DIR.'nophoto_'.$type.'.jpg', $quality = 100);
 //                            return '@app/web/uploads/nophoto_'.$type.'.jpg';

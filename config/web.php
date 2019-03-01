@@ -110,8 +110,8 @@ $config = [
                 'api/image_upload' => 'image/index',
                 'GET api/recomended/<id>' => 'rarticles/recomended',
                 'GET api/catSections/<id>' => 'rarticles/categories',
-                'GET api/articleRss/<id>' => 'rarticles/rss',
-                'POST api/articleRss/<id>' => 'rarticles/rssupdate',
+                'GET api/articlerss/<id>' => 'rarticles/rss',
+                'POST api/articlerss/<id>' => 'rarticles/rssupdate',
                 'POST api/recomended/<id>' => 'rarticles/recupdate',
                 'POST api/catupdate/<id>' => 'rarticles/catupdate',
 

@@ -76,6 +76,15 @@ $article->name = str_replace('"', '', $article->name);
                             <div class="gallery-fullscreen__image-container">
                                 <img src="<?=UPLOAD_DIR.$item["url"]?>" alt="<?=$article->name?>">
                             </div>
+                            <div class="right-aside">
+                                <p class="swiper-slide__description"><?=$item->content?></p>
+                                <div class="article__teaser_buy">
+                                    <!--                                    <div class="image-container">-->
+                                    <!--                                        <a href="#"><img src="/web/img/article-teaser-vert2.jpg" width="768" height="1200" alt=""></a>-->
+                                    <!--                                    </div>-->
+
+                                </div>
+                            </div>
                         </div>
                         <? } ?>
 

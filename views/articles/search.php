@@ -46,7 +46,15 @@ $this->title = 'Поиск на Be Icon: '.$query;
                 </div>
                 <div class="article__teaser__info">
                     <div class="article__teaser__date"><? if($article["date_publish"] != '0000-00-00 00:00:00') { ?><?=date('d.m.Y', strtotime($article["date_publish"]))?><? } ?></div>
-                    <div class="article__teaser__views"><span class="views__num"><?=$item["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg></div>
+                    <div class="article__teaser__views">
+
+                        <? if($item["views"] > 5000) { ?>
+
+                        <span class="views__num"><?=$item["views"]?></span><svg class="inline-svg views__icon"><use xlink:href="#visibility"></use></svg>
+
+                        <? } ?>
+
+                    </div>
                 </div>
             </div>
         </article>

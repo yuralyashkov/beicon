@@ -183,9 +183,9 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
-        $articles = Articles::find()->where(['show_on_main' => 1, 'status' => 'publish'])->orderBy(['date_publish' => SORT_DESC])->limit(25)->all();
+        $articles = Articles::find()->where(['show_on_main' => 1, 'status' => 'publish'])->andWhere(['<=', 'date_publish', date('Y-m-d H:i:s')])->orderBy(['date_publish' => SORT_DESC])->limit(25)->all();
 //        $articles = Articles::find()->where(['show_on_main' => 1, 'status' => 'publish'])->orderBy(['date_publish' => SORT_DESC])->orderBy('main_sort')->limit(17)->all();
-        $recomended = Articles::find()->where(['status' => 'publish', 'choise' => 1])->orderBy(['date_publish' => SORT_DESC])->limit(10)->all();
+        $recomended = Articles::find()->where(['status' => 'publish', 'choise' => 1])->andWhere(['<=', 'date_publish', date('Y-m-d H:i:s')])->orderBy(['date_publish' => SORT_DESC])->limit(10)->all();
         if($recomended) {
             foreach ($recomended as $k => $value) {
 

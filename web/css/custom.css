@@ -14,6 +14,10 @@ article .article-body .article__keywords > a {
     padding: 4px 8px;.article-body p
 }
 
+.top-articles .article-overlay {
+    background: linear-gradient(to bottom, rgba(54, 56, 62, 0.2) 0%, #36383ed1  70%);
+}
+
 article .article-body .gallery-tile,
 article .article-body .gallery-mosaic
 {
@@ -278,4 +282,8 @@ body.page-branding_l {
 
 .article-body p {
     word-break: break-word;
+}
+
+.main-content.one-column .article-body p {
+    padding-left: 0;
 }

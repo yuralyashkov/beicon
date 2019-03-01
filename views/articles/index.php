@@ -43,7 +43,8 @@ if($article["header_img"]) {
 
             <!-- Start Article announce -->
             <div class="article-announce clearfix">
-                <h1><?=$article["name"]?></h1>
+
+                <h1><?=$article->oldAttributes["name"]?></h1>
                 <div class="article__keywords">
                     <? foreach ($article->tags as $tag){ ?>
 
@@ -316,7 +317,7 @@ if($nextArticleUrl) {
         $(menu_selector).each(function(){
             var url = $(this).data('id');
             var target = $(this);
-            if (target.position().top <= scroll_top && target.position().top + target.outerHeight() > scroll_top && !loading) {
+            if (target.position().top <= scroll_top+($(window).height()-500) && target.position().top + target.outerHeight() > scroll_top+($(window).height()-500) && !loading) {
 
                 console.log(url);
                 // console.log(window.history.state);
@@ -340,7 +341,7 @@ if($nextArticleUrl) {
         var article<?=$article["id"]?> = false;
        $(window).scroll(function () {
            if(!article<?=$article["id"]?>){
-               if($(window).scrollTop()+$(window).height()>=($(document).height()-500) && !loading){
+               if($(window).scrollTop()+($(window).height()*2)>=($(document).height()-500) && !loading){
                    loading = true;
                    $('.main-content.page-wrapper').eq(0).append('<div id="loader"><img src="/basic/web/img/loader.gif"></div>');
                    article<?=$article["id"]?> = true;

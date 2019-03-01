@@ -354,25 +354,29 @@ class RarticlesController extends ActiveController
            }
 
         }
+
+
+//        Удаляяем теги
+        if(isset($item->tags) && count($item->tags) > 0 && $item->tags != '' && isset($tags) && is_array($tags)) {
+            foreach ($oldTags as $tag) {
+                if (!in_array($tag->name, $tags)) {
+
+
+                    $atag = Atags::find()->where(['tag_id' => $tag->id, 'article_id' => $post_id])->all();
+                    foreach ($atag as $a) {
+                        $a->delete();
+                    }
+                }
+            }
+        }
+        $item = Articles::findOne($post_id);
+
         if($e = $item->load($post, '')){
             if ($item->save() && $item->validate()){
 
 
 
 
-                if(isset($item->tags) && count($item->tags) > 0 && $item->tags != '' && isset($tags) && is_array($tags)) {
-
-
-
-                    foreach ($oldTags as $tag) {
-                        if (!in_array($tag, $tags)) {
-
-                            $atag = Atags::find()->where(['tag_id' => $tag->id, 'article_id' => $post_id])->one();
-
-                            $atag->delete();
-                        }
-                    }
-                }
 
 
                 if(isset($item->persons) && count($item->persons) > 0 && $item->persons != '' && isset($persons) && is_array($persons)) {
@@ -389,8 +393,11 @@ class RarticlesController extends ActiveController
                 }
 
                 if(isset($tags) && is_array($tags)) {
+
                     foreach ($tags as $tag) {
+
                         $r = Tags::find()->where(['name' => $tag])->one();
+
 
                         $atag = false;
                         if ($r) {

@@ -48,6 +48,11 @@ AppAsset::register($this);
     if($jsheader){
         echo $jsheader->value;
     }
+
+    $googleheader = \app\models\Meta::findOne(['keyname' => 'gtag.js']);
+    if($googleheader){
+        echo $googleheader->value;
+    }
     ?>
 
 
@@ -124,8 +129,9 @@ if($metrika){
             </div>
             <footer class="menu-block__line  menu-block__line-3">
                 <div class="footer__copyright col_l">
-                    <p>Все права защищены</p>
-                    <p>Для лиц старше 18 лет</p>
+                    <p>© <?=date('Y')?> Be Icon.</p>
+                    <p>Все права защищены.</p>
+                    <p>Для лиц старше 16 лет.</p>
                 </div>
                 <div class="footer__coop col_r">
                     <ul class="footer-links__list">

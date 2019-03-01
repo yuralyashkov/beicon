@@ -25,7 +25,7 @@ class GalleryItems extends \yii\db\ActiveRecord
     {
         $json = parent::fields ();
         $json["url"] = function (){
-            return Articles::siteURL()."/uploads/".$this->url;
+            return Articles::siteURL()."/uploads".$this->url;
         };
         $json ['sizes'] = function () {
 //            if($this->tags) return $this->tags; else return null;

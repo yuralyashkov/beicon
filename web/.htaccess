@@ -7,6 +7,15 @@
 # Mod_Rewrite
 <IfModule mod_rewrite.c>
 
+RewriteEngine on
+RewriteBase /
+
+# Переключает url в нижний регистр, если найдены символы в верхнем регистре
+RewriteCond %{REQUEST_URI} [A-Z]
+# Убедитесь, что это не файл на диске.
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule (.*) rewrite-strtolower.php?rewrite-strtolower-url=$1 [QSA,L]
+
 RewriteCond %{THE_REQUEST} \s/+(.+?)/+[?\s]
 RewriteRule /$ /%1 [R,L]
 

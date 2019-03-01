@@ -48,7 +48,7 @@ class Sitemap extends Model{
         $host = Yii::$app->request->hostInfo; // домен сайта
         ob_start();
         echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
-        <rss version="2.0">
+        <rss version="2.0" xmlns:yandex="http://news.yandex.ru" xmlns:rambler="http://news.rambler.ru" >
     <channel>
       <title><?=$rssName?></title>
         <link><?=$host?></link>
@@ -65,6 +65,8 @@ class Sitemap extends Model{
             <enclosure url="<?=$host.UPLOAD_DIR.$url["img"]?>" type="image/jpeg"/>
                 <? } ?>
             <content><![CDATA[<?=$url["content"]?>]]></content>
+           <yandex:full-text><![CDATA[<?=$url["content"]?>]]></yandex:full-text>
+           <rambler:full-text><![CDATA[<?=$url["content"]?>]]></rambler:full-text>
         </item>
        <? } ?>
     </channel></rss><?php
